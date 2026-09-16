@@ -8,6 +8,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 
 <!-- Open Graph -->
@@ -33,10 +36,7 @@
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="#contacto" class="btn btn-outline btn-sm">Contacto</a>
-      <a href="https://wa.me/5493471332479?text=Hola%20SINC%20Maquinarias%2C%20quiero%20consultar%20por%20sus%20m%C3%A1quinas" target="_blank" rel="noopener" class="btn btn-wpp btn-sm">
-        WhatsApp
-      </a>
+      <a href="#contacto" class="btn btn-outline-dark btn-sm">Contacto</a>
     </div>
   </div>
 </header>
@@ -47,33 +47,35 @@
   <section class="hero" id="top">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <div class="eyebrow" style="background:rgba(255,255,255,.12);color:#eaf5e6">Industria argentina · Las Parejas, Santa Fe</div>
-        <h1>Maquinaria que transforma <em>residuo en resultado</em></h1>
+        <div class="eyebrow">Industria argentina · Las Parejas, Santa Fe</div>
+        <h1>Maquinaria que transforma<br><span class="accent">residuo en resultado</span></h1>
         <p class="lead">Diseñamos y fabricamos máquinas robustas para la gestión de residuos orgánicos: menos horas de trabajo manual, menos olores y plagas, y un residuo que vuelve al suelo como recurso.</p>
         <div class="hero-cta">
           <a href="https://wa.me/5493471332479?text=Hola%20SINC%20Maquinarias%2C%20quiero%20consultar%20por%20sus%20m%C3%A1quinas" target="_blank" rel="noopener" class="btn btn-wpp">
-            <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.23.62 4.32 1.7 6.12L4 29l8.05-1.66a12 12 0 0 0 3.97.68h.01c6.62 0 12.02-5.4 12.02-12.02C28.05 8.4 22.65 3 16.02 3Zm0 21.94h-.01a9.9 9.9 0 0 1-5.06-1.39l-.36-.21-4.78.99 1.02-4.66-.24-.38a9.9 9.9 0 0 1-1.52-5.27C5.07 9.53 10.03 4.98 16.02 4.98c2.65 0 5.14 1.03 7.02 2.9a9.86 9.86 0 0 1 2.9 7.14c0 5.5-4.96 9.92-9.92 9.92Zm5.44-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.2 5.07 4.49.71.31 1.26.49 1.69.62.71.23 1.35.2 1.86.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.23.62 4.32 1.7 6.12L4 29l8.05-1.66a12 12 0 0 0 3.97.68h.01c6.62 0 12.02-5.4 12.02-12.02C28.05 8.4 22.65 3 16.02 3Zm0 21.94h-.01a9.9 9.9 0 0 1-5.06-1.39l-.36-.21-4.78.99 1.02-4.66-.24-.38a9.9 9.9 0 0 1-1.52-5.27C5.07 9.53 10.03 4.98 16.02 4.98c2.65 0 5.14 1.03 7.02 2.9a9.86 9.86 0 0 1 2.9 7.14c0 5.5-4.96 9.92-9.92 9.92Zm5.44-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.2 5.07 4.49.71.31 1.26.49 1.69.62.71.23 1.35.2 1.86.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
             Hablar por WhatsApp
           </a>
-          <a href="#productos" class="btn btn-outline" style="border-color:#fff;color:#fff">Ver máquinas</a>
+          <a href="#productos" class="btn btn-outline">Ver máquinas</a>
         </div>
-        <div class="trust-strip">
-          <div class="trust-badge"><span class="ico">🏆</span> Única en el país</div>
-          <div class="trust-badge"><span class="ico">🇦🇷</span> Fabricación nacional</div>
-          <div class="trust-badge"><span class="ico">🛡️</span> Garantía 12 meses</div>
-          <div class="trust-badge"><span class="ico">🤝</span> Repuestos y service en español</div>
+        <div class="trust-list">
+          <div class="trust-item">Única en el país</div>
+          <div class="trust-item">Fabricación nacional</div>
+          <div class="trust-item">Garantía de fábrica 12 meses</div>
+          <div class="trust-item">Repuestos y service en español</div>
         </div>
       </div>
       <div class="hero-media">
-        <img src="assets/img/equilimpia_maquina.jpg" alt="Equilimpia, máquina de SINC Maquinarias para limpieza de boxes ecuestres">
+        <div class="frame">
+          <img src="assets/img/equilimpia_maquina.jpg" alt="Equilimpia, máquina de SINC Maquinarias para limpieza de boxes ecuestres">
+        </div>
       </div>
     </div>
     <div class="quick-jump">
       <div class="container">
-        <a href="#tab-equilimpia">🐴 Equilimpia</a>
-        <a href="#tab-biorecolector">🍂 Biorecolector 4500</a>
-        <a href="#casos">📈 Resultados</a>
-        <a href="#quienes-somos">👥 Quiénes somos</a>
+        <a href="#tab-equilimpia">Equilimpia</a>
+        <a href="#tab-biorecolector">Biorecolector 4500</a>
+        <a href="#casos">Resultados</a>
+        <a href="#quienes-somos">Quiénes somos</a>
       </div>
     </div>
   </section>
@@ -93,7 +95,7 @@
           Equilimpia
         </button>
         <button class="tab-btn bio" role="tab" aria-selected="false" aria-controls="tab-biorecolector" id="btn-biorecolector" data-tab="biorecolector">
-          🍂 Biorecolector 4500
+          Biorecolector 4500
         </button>
       </div>
 
@@ -108,7 +110,7 @@
             <h2>Del establo al suelo, en un solo paso</h2>
             <p class="tagline">Aspiración, trituración y esparcido de residuos ecuestres en una sola máquina remolcable. Única en el país con esta integración — patente en trámite.</p>
             <div class="actions">
-              <a href="https://wa.me/5493471332479?text=Hola%2C%20quiero%20consultar%20por%20Equilimpia" target="_blank" rel="noopener" class="btn btn-wpp">Consultar por Equilimpia</a>
+              <a href="https://wa.me/5493471332479?text=Hola%2C%20quiero%20consultar%20por%20Equilimpia" target="_blank" rel="noopener" class="link-arrow">Consultar por Equilimpia →</a>
             </div>
           </div>
         </div>
@@ -122,12 +124,12 @@
         <div class="benef-row">
           <div class="benef-chip"><b>2-3 h</b><span>de limpieza diaria (antes 6-8 h)</span></div>
           <div class="benef-chip"><b>1</b><span>operario en vez de 2-3</span></div>
-          <div class="benef-chip"><b>↓</b><span>amoníaco y plagas en el establo</span></div>
+          <div class="benef-chip"><b>−</b><span>amoníaco y plagas en el establo</span></div>
           <div class="benef-chip"><b>3-4 años</b><span>de nutrientes liberados en el suelo</span></div>
         </div>
 
         <details class="specs-details">
-          <summary>Ver ficha técnica completa</summary>
+          <summary>Ficha técnica completa</summary>
           <div class="specs">
             <div><b>Capacidad de tolva</b><span>5,5 m³ / hasta 500 kg</span></div>
             <div><b>Tractor requerido</b><span>desde 50 HP, TDF 540 RPM</span></div>
@@ -142,9 +144,8 @@
 
         <p class="aplicaciones-line"><b>Aplicaciones:</b> haras y studs, canchas de polo, centros de adiestramiento, establecimientos ecuestres escolares y, por adaptación de ingeniería, tambos lecheros.</p>
 
-        <h4 style="margin-top:30px;font-size:.95rem">Equilimpia en video</h4>
+        <h4 style="margin-top:34px;font-size:.9rem;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint)">Equilimpia en video</h4>
         <div class="placeholder-media">
-          <span class="icon">🎬</span>
           <strong>Próximamente: video real en funcionamiento</strong>
           <p>Estamos preparando material audiovisual de esta máquina trabajando en campo.</p>
         </div>
@@ -161,7 +162,7 @@
             <h2>Recicla tu entorno, cultiva tu futuro</h2>
             <p class="tagline">Recolección, trituración y almacenamiento de residuos vegetales en una sola máquina. Motor autónomo o enganchada a tractor: vos elegís el modo.</p>
             <div class="actions">
-              <a href="https://wa.me/5493471332479?text=Hola%2C%20quiero%20consultar%20por%20el%20Biorecolector%204500" target="_blank" rel="noopener" class="btn btn-wpp">Consultar por el Biorecolector 4500</a>
+              <a href="https://wa.me/5493471332479?text=Hola%2C%20quiero%20consultar%20por%20el%20Biorecolector%204500" target="_blank" rel="noopener" class="link-arrow azul">Consultar por el Biorecolector 4500 →</a>
             </div>
           </div>
         </div>
@@ -180,7 +181,7 @@
         </div>
 
         <details class="specs-details">
-          <summary>Ver ficha técnica completa</summary>
+          <summary>Ficha técnica completa</summary>
           <div class="specs">
             <div><b>Dimensiones</b><span>2500 × 1800 × 1600 mm</span></div>
             <div><b>Peso en vacío</b><span>800-900 kg</span></div>
@@ -195,7 +196,7 @@
 
         <p class="aplicaciones-line"><b>Aplicaciones:</b> municipios y espacios verdes públicos, empresas de paisajismo, parques y clubes privados, viveros e instituciones (escuelas, hospitales, universidades).</p>
 
-        <h4 style="margin-top:30px;font-size:.95rem">El Biorecolector 4500 en funcionamiento</h4>
+        <h4 style="margin-top:34px;font-size:.9rem;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint)">El Biorecolector 4500 en funcionamiento</h4>
         <div class="video-strip">
           <figure class="video-card">
             <video controls preload="metadata" playsinline poster="assets/img/biorecolector_maquina.jpg">
@@ -279,30 +280,15 @@
         <p>SINC Maquinarias es una pyme familiar argentina con base en Las Parejas, Santa Fe. Nacimos junto a un socio estratégico del sector ecuestre que necesitaba resolver algo que nadie resolvía: la limpieza manual e intensiva de boxes. De ahí surgió Equilimpia, y luego el Biorecolector 4500 para espacios verdes.</p>
         <p><b>No buscamos maximizar el volumen de ventas.</b> Diseñamos máquinas robustas para quienes valoran la calidad y el resultado por sobre el precio.</p>
         <div class="valores-inline">
-          <div class="valor-chip">🛠️ Robustez extrema</div>
-          <div class="valor-chip">🌱 Del residuo al recurso</div>
-          <div class="valor-chip">🤝 Co-diseño con el cliente</div>
-          <div class="valor-chip">🇦🇷 Fabricación nacional</div>
+          <div class="valor-chip">Robustez extrema</div>
+          <div class="valor-chip">Del residuo al recurso</div>
+          <div class="valor-chip">Co-diseño con el cliente</div>
+          <div class="valor-chip">Fabricación nacional</div>
         </div>
       </div>
       <div class="quote-block">
         <p>"Hoy no operaríamos sin Equilimpia. Es una inversión que paga dividendos todas las semanas."</p>
         <footer>— Haras Los Turfistas, 120 boxes, socio estratégico en el desarrollo de Equilimpia</footer>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section>
-    <div class="container">
-      <div class="cta-final">
-        <h2>¿Querés conocer más sobre nuestras máquinas?</h2>
-        <p>Contanos tu caso y te asesoramos sin compromiso. Respondemos por WhatsApp.</p>
-        <div class="hero-cta">
-          <a href="https://wa.me/5493471332479?text=Hola%20SINC%20Maquinarias%2C%20quiero%20consultar%20por%20sus%20m%C3%A1quinas" target="_blank" rel="noopener" class="btn btn-white">
-            💬 Escribinos por WhatsApp
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -316,7 +302,7 @@
         <img src="assets/img/sinc_logo.png" alt="SINC Maquinarias">
         <span>SINC Maquinarias</span>
       </div>
-      <p style="font-size:.9rem;color:#a9b39f">Maquinaria argentina para la gestión sustentable de residuos orgánicos.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:.86rem;color:#8b9184">Maquinaria argentina para la gestión sustentable de residuos orgánicos.</p>
     </div>
     <div>
       <h5>Productos</h5>
