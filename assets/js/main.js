@@ -39,3 +39,38 @@ function openTabFromHash() {
 }
 window.addEventListener('hashchange', openTabFromHash);
 if (location.hash) openTabFromHash();
+
+/**
+ * Textos editables (assets/content.json)
+ * -----------------------------------------------------------------
+ * Todo el copy de la pagina se carga desde assets/content.json y
+ * pisa el texto por defecto que ya esta escrito en el HTML.
+ * Si el archivo no existe, tiene un error de formato, o falta alguna
+ * clave, esta funcion NO rompe la pagina: simplemente deja el texto
+ * que ya estaba escrito en el HTML como estaba. Por eso es seguro
+ * editar content.json sin riesgo de "romper" el sitio.
+ */
+fetch('assets/content.json', { cache: 'no-store' })
+  .then(res => (res.ok ? res.json() : null))
+  .then(data => {
+    if (!data) return;
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const path = el.getAttribute('data-key').split('.');
+      let value = data;
+      for (const part of path) {
+        if (value && typeof value === 'object' && part in value) {
+          value = value[part];
+        } else {
+          value = undefined;
+          break;
+        }
+      }
+      if (typeof value === 'string' && value.trim() !== '') {
+        el.textContent = value;
+      }
+    });
+  })
+  .catch(() => {
+    /* Si algo falla al cargar/parsear content.json, se ignora
+       silenciosamente y queda el texto por defecto del HTML. */
+  });
