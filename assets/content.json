@@ -10,31 +10,32 @@
     "trust_2": "Fabricación nacional",
     "trust_3": "Garantía de fábrica 12 meses"
   },
+
   "productos_intro": {
     "eyebrow": "Nuestras máquinas",
     "titulo": "Dos líneas, un mismo objetivo",
     "lead": "Cada máquina integra en una sola unidad procesos que normalmente requieren varias herramientas y mucho más tiempo de trabajo manual."
   },
+
   "equilimpia": {
     "tab": "Equilimpia",
     "eyebrow": "Sector ecuestre",
     "titulo": "Del establo al suelo, en un solo paso",
-    "tagline": "Aspiración, trituración y esparcido de residuos ecuestres en una sola máquina. Única en el país — pantentado propio.",
+    "tagline": "Aspira, tritura y esparce el residuo de los boxes en una sola pasada. Diseño propio, único en el país.",
     "boton_consultar": "Consultar por Equilimpia →",
+
     "paso1_titulo": "Aspiración",
     "paso1_texto": "Turbina centrífuga con manguera de 8\" que aspira el residuo directamente del box.",
     "paso2_titulo": "Traslado higiénico",
     "paso2_texto": "Tolva hermética de 5,5 m³ (hasta 500 kg), sin contacto manual con el residuo.",
     "paso3_titulo": "Esparcido",
     "paso3_texto": "Rotores con púas dispersan el material de forma uniforme, como fertilizante.",
-    "benef1_valor": "reduce tiempos",
-    "benef1_label": "de limpieza diaria",
-    "benef2_valor": "se puede usar",
-    "benef2_label": "con menos operarios(ver que poner pero no dar numeros)",
-    "benef3_valor": "−",
-    "benef3_label": "amoníaco y plagas en el establo",
-    "benef4_valor": "libera nutrientes",
-    "benef4_label": "en el suelo",
+
+    "benef1": "Reduce el tiempo de limpieza diaria",
+    "benef2": "Se puede usar con menos personal",
+    "benef3": "Baja el amoníaco y las plagas del establo",
+    "benef4": "Devuelve nutrientes al suelo como abono",
+
     "spec1_label": "Capacidad de tolva",
     "spec1_valor": "5,5 m³ / hasta 500 kg",
     "spec2_label": "Tractor requerido",
@@ -51,31 +52,33 @@
     "spec7_valor": "doble anticorrosiva epoxi + poliuretánico",
     "spec8_label": "Garantía",
     "spec8_valor": "12 meses de fábrica",
-    "aplicaciones": "haras y studs, canchas de polo, centros de adiestramiento, establecimientos ecuestres escolares",
+
+    "aplicaciones": "haras y studs, canchas de polo, centros de adiestramiento, establecimientos ecuestres escolares, y adaptable a otros usos ganaderos, como criaderos de aves.",
+
     "video_titulo": "Equilimpia en video",
     "video_placeholder_titulo": "Próximamente: video real en funcionamiento",
     "video_placeholder_texto": "Estamos preparando material audiovisual de esta máquina trabajando en campo."
   },
+
   "biorecolector": {
     "tab": "Biorecolector 4500",
     "eyebrow": "Espacios verdes y municipios",
     "titulo": "Recicla tu entorno, cultiva tu futuro",
-    "tagline": "Recolección, trituración y almacenamiento de residuos vegetales en una sola máquina. Motor autónomo de ",
+    "tagline": "Junta, tritura y guarda hojas y restos de poda en una sola máquina. Anda con motor propio o enganchada al tractor.",
     "boton_consultar": "Consultar por el Biorecolector 4500 →",
+
     "paso1_titulo": "Recolección",
     "paso1_texto": "Turbina con manguera de 4-5\" y caudal de aire de 1000-1500 m³/hora.",
     "paso2_titulo": "Trituración",
     "paso2_texto": "Rodillo interno que reduce el volumen de 5 a 7 veces en una tolva de 450-550 L.",
     "paso3_titulo": "Descarga",
     "paso3_texto": "Compuerta tipo guillotina, descarga por gravedad, lista para compostar.",
-    "benef1_valor": "menos tiempo",
-    "benef1_label": "de limpieza",
-    "benef2_valor": "menos operadores",
-    "benef2_label": "para hacer el trabajo",
-    "benef3_valor": "reducción del",
-    "benef3_label": "volumen del residuo",
-    "benef4_valor": "material",
-    "benef4_label": "listo para compost",
+
+    "benef1": "Reduce el tiempo de limpieza",
+    "benef2": "Se puede usar con menos personal",
+    "benef3": "Reduce mucho el volumen del residuo",
+    "benef4": "Deja el material listo para compostar",
+
     "spec1_label": "Dimensiones",
     "spec1_valor": "2500 × 1800 × 1600 mm",
     "spec2_label": "Peso en vacío",
@@ -86,48 +89,59 @@
     "spec4_valor": "13-18 HP",
     "spec5_label": "Enganche a tractor",
     "spec5_valor": "desde 40 HP, TDF",
-    "spec6_label": "T-",
-    "spec6_valor": "-",
+    "spec6_label": "Trituración",
+    "spec6_valor": "ratio 5:1 a 7:1, ramas hasta 3-5 cm",
     "spec7_label": "Nivel de ruido",
     "spec7_valor": "80-85 dB, parada de emergencia",
     "spec8_label": "Garantía",
     "spec8_valor": "12 meses de fábrica",
+
     "aplicaciones": "municipios y espacios verdes públicos, empresas de paisajismo, parques y clubes privados, viveros e instituciones (escuelas, hospitales, universidades).",
+
     "video_titulo": "El Biorecolector 4500 en funcionamiento",
     "video1_caption": "Aspiración de hojas",
     "video2_caption": "Descarga triturada",
     "video3_caption": "Con tractor"
   },
+
   "casos": {
     "eyebrow": "Casos de aplicación",
-    "titulo": "El cliente no compra una máquina: compra una transformación",
-    "lead": "Escenarios típicos según el sector y la escala del establecimiento, a partir de nuestra experiencia de desarrollo e implementación.",
+    "titulo": "Así se usan nuestras máquinas",
+    "lead": "Ejemplos de uso según el tipo de establecimiento y su tamaño.",
+
     "caso1_sector": "Sector ecuestre · caso real",
     "caso1_titulo": "Haras Los Turfistas · 120 boxes",
     "caso1_texto": "Socio estratégico en el desarrollo de Equilimpia, con reducción de horas de trabajo y compost reutilizable mensual.",
-    "caso1_resultado": "De 6-8 h a 2-2,5 h de limpieza diaria",
+    "caso1_resultado": "Bajó mucho el tiempo de limpieza diaria",
+
     "caso2_sector": "Centro ecuestre",
     "caso2_titulo": "80 boxes",
     "caso2_texto": "Menos moscas en pocas semanas al eliminar la acumulación de residuos, con menor gasto en insecticidas.",
-    "caso2_resultado": "80-90% menos presencia de moscas",
-    "caso3_sector": "Aca poner de criaderos de gallinas",
-    "caso3_titulo": "-",
-    "caso3_texto": "-",
-    "caso3_resultado": "-",
+    "caso2_resultado": "Bajó mucho la presencia de moscas",
+
+    "caso3_sector": "Criadero de gallinas",
+    "caso3_titulo": "Galpones avícolas",
+    "caso3_texto": "Equilimpia adaptada para levantar la cama de los galpones, reduciendo el trabajo manual y devolviendo el residuo como abono para el campo.",
+    "caso3_resultado": "Menos horas de limpieza por galpón",
+
     "caso4_sector": "Municipio",
     "caso4_titulo": "Espacios verdes públicos",
     "caso4_texto": "Dos unidades de Biorecolector 4500 con motor autónomo para parques y plazas.",
-    "caso4_resultado": "80% menos horas de personal por hectárea",
+    "caso4_resultado": "Menos horas de personal por hectárea",
+
     "caso5_sector": "Empresa de paisajismo",
     "caso5_titulo": "40-50 propiedades",
     "caso5_texto": "Tiempo de limpieza por propiedad muy reducido, permitiendo atender más propiedades con el mismo personal.",
-    "caso5_resultado": "De 2-3 h a 30-45 min por propiedad",
+    "caso5_resultado": "Mucho menos tiempo por propiedad",
+
     "caso6_sector": "Vivero comercial",
     "caso6_titulo": "Procesamiento en tiempo real",
     "caso6_texto": "Se libera espacio de acopio y se acelera el compostaje al procesar el residuo en el momento.",
-    "caso6_resultado": "Libera 150-200 m² de espacio",
-    "disclaimer": "Los escenarios de centro ecuestre, tambo, municipio, paisajismo y vivero son ejemplos ilustrativos de aplicación, no testimonios de clientes con nombre y apellido. El caso de Haras Los Turfistas corresponde a nuestro socio estratégico fundacional en el desarrollo de Equilimpia."
+    "caso6_resultado": "Libera espacio de acopio",
+
+    "disclaimer": "Los escenarios de centro ecuestre, criadero de gallinas, municipio, paisajismo y vivero son ejemplos ilustrativos de aplicación, no testimonios de clientes con nombre y apellido. El caso de Haras Los Turfistas corresponde a nuestro socio estratégico fundacional en el desarrollo de Equilimpia."
   },
+
   "about": {
     "eyebrow": "Quiénes somos",
     "titulo": "Una empresa familiar que nació de un problema real del campo",
@@ -139,8 +153,9 @@
     "valor3": "Co-diseño con el cliente",
     "valor4": "Fabricación nacional",
     "quote_texto": "\"Hoy no operaríamos sin Equilimpia. Es una inversión que paga dividendos todas las semanas.\"",
-    "quote_autor": "— Haras ..., 120 boxes, socio estratégico en el desarrollo de Equilimpia"
+    "quote_autor": "— Haras Los Turfistas, 120 boxes, socio estratégico en el desarrollo de Equilimpia"
   },
+
   "footer": {
     "tagline": "Maquinaria argentina para la gestión sustentable de residuos orgánicos."
   }
