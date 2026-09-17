@@ -62,29 +62,37 @@ if (location.hash) openTabFromHash();
  * que ya estaba escrito en el HTML como estaba. Por eso es seguro
  * editar content.json sin riesgo de "romper" el sitio.
  */
+function getValueByPath(data, dotted) {
+  const path = dotted.split('.');
+  let value = data;
+  for (const part of path) {
+    if (value && typeof value === 'object' && part in value) {
+      value = value[part];
+    } else {
+      return undefined;
+    }
+  }
+  return value;
+}
+
 fetch('assets/content.json', { cache: 'no-store' })
   .then(res => (res.ok ? res.json() : null))
   .then(data => {
-    if (!data) return;
-    document.querySelectorAll('[data-key]').forEach(el => {
-      const path = el.getAttribute('data-key').split('.');
-      let value = data;
-      for (const part of path) {
-        if (value && typeof value === 'object' && part in value) {
-          value = value[part];
-        } else {
-          value = undefined;
-          break;
+    if (data) {
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const value = getValueByPath(data, el.getAttribute('data-key'));
+        if (typeof value === 'string' && value.trim() !== '') {
+          el.textContent = value;
         }
-      }
-      if (typeof value === 'string' && value.trim() !== '') {
-        el.textContent = value;
-      }
-    });
+      });
+    }
+    initChatWidget(data);
   })
   .catch(() => {
     /* Si algo falla al cargar/parsear content.json, se ignora
-       silenciosamente y queda el texto por defecto del HTML. */
+       silenciosamente y queda el texto por defecto del HTML. El widget
+       de chat igual se inicializa (sin bot_url, muestra el placeholder). */
+    initChatWidget(null);
   });
 
 /* Header: sombra al scrollear, para separarlo visualmente del contenido */
@@ -149,6 +157,83 @@ if (casosCarousel && casosPrev && casosNext) {
   updateCarouselArrows();
   casosCarousel.addEventListener('scroll', updateCarouselArrows, { passive: true });
   window.addEventListener('resize', updateCarouselArrows);
+}
+
+/**
+ * Widget de chat (botón flotante + panel)
+ * -----------------------------------------------------------------
+ * Abre un panel con el asistente embebido por iframe, apuntando a
+ * `${chat.bot_url}/chat` (assets/content.json). Mientras chat.bot_url
+ * quede vacío — porque el bot todavía corre solo en una compu y no en
+ * un servidor público — se muestra un mensaje de "en preparación" en
+ * vez de un iframe roto. El iframe se crea recién la primera vez que
+ * se abre el panel (no antes), para no gastar carga de más.
+ */
+function initChatWidget(data) {
+  const chatToggle = document.getElementById('chatToggle');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatPanelClose = document.getElementById('chatPanelClose');
+  const chatPanelBody = document.getElementById('chatPanelBody');
+  if (!chatToggle || !chatPanel || !chatPanelBody) return;
+
+  const botUrl = (data && typeof getValueByPath(data, 'chat.bot_url') === 'string')
+    ? getValueByPath(data, 'chat.bot_url').trim().replace(/\/$/, '')
+    : '';
+
+  let bodyBuilt = false;
+  function buildBody() {
+    if (bodyBuilt) return;
+    bodyBuilt = true;
+    if (botUrl) {
+      const iframe = document.createElement('iframe');
+      iframe.src = botUrl + '/chat';
+      iframe.title = getValueByPath(data, 'chat.panel_titulo') || 'Asistente SINC Maquinarias';
+      iframe.allow = 'microphone';
+      chatPanelBody.appendChild(iframe);
+    } else {
+      const titulo = (data && getValueByPath(data, 'chat.no_configurado_titulo'))
+        || 'Asistente en preparación';
+      const texto = (data && getValueByPath(data, 'chat.no_configurado_texto'))
+        || 'Muy pronto vas a poder consultarle acá directamente a nuestro asistente virtual. Mientras tanto, escribinos por WhatsApp o email — los datos están al pie de la página.';
+      chatPanelBody.innerHTML = `
+        <div class="chat-placeholder">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </span>
+          <strong></strong>
+          <p></p>
+        </div>`;
+      chatPanelBody.querySelector('strong').textContent = titulo;
+      chatPanelBody.querySelector('p').textContent = texto;
+    }
+  }
+
+  function openChat() {
+    buildBody();
+    chatPanel.hidden = false;
+    chatToggle.setAttribute('aria-expanded', 'true');
+    document.addEventListener('keydown', onKeydown);
+  }
+  function closeChat() {
+    chatPanel.hidden = true;
+    chatToggle.setAttribute('aria-expanded', 'false');
+    document.removeEventListener('keydown', onKeydown);
+    chatToggle.focus();
+  }
+  function onKeydown(e) {
+    if (e.key === 'Escape') closeChat();
+  }
+
+  chatToggle.addEventListener('click', () => {
+    if (chatPanel.hidden) openChat(); else closeChat();
+  });
+  chatPanelClose.addEventListener('click', closeChat);
+
+  // Cualquier botón/link con data-key de "consultar" (hero, tabs de
+  // producto) también abre el mismo widget en vez de ir a WhatsApp.
+  document.querySelectorAll('.js-open-chat').forEach(el => {
+    el.addEventListener('click', openChat);
+  });
 }
 
 /* Animacion sutil al entrar en pantalla (respeta "reducir movimiento") */

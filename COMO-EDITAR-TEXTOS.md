@@ -53,3 +53,12 @@ Los números de WhatsApp, el email, Instagram, la dirección, las fotos, los
 videos, los colores y el orden de las secciones **no** están en
 `content.json` porque tocarlos sin querer sí puede romper un link o el
 diseño. Esos cambios seguí pidiéndomelos a mí.
+
+## Una excepción: el bloque "chat"
+
+Al final del archivo hay un bloque `"chat"` con una clave que **no** es un
+texto de la página: `"bot_url"`. Ahí va la dirección de internet del
+asistente una vez publicado en un servidor real — ver
+`DESPLIEGUE-CHAT.md` para el paso a paso completo. El resto de las claves
+de ese bloque (`panel_titulo`, `no_configurado_texto`, etc.) sí son texto
+normal, editables igual que cualquier otra.

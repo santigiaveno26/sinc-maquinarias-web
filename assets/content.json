@@ -4,7 +4,7 @@
     "titulo_1": "Maquinaria que transforma",
     "titulo_2": "residuo en resultado",
     "lead": "Diseñamos y fabricamos máquinas robustas para la gestión de residuos orgánicos: menos horas de trabajo manual, menos olores y plagas, y un residuo que vuelve al suelo como recurso.",
-    "boton_whatsapp": "Hablar por WhatsApp",
+    "boton_whatsapp": "Hablar con el asistente",
     "boton_secundario": "Ver máquinas",
     "trust_1": "Única en el país",
     "trust_2": "Fabricación nacional",
@@ -22,7 +22,7 @@
     "eyebrow": "Sector ecuestre",
     "titulo": "Del establo al suelo, en un solo paso",
     "tagline": "Aspira, tritura y esparce el residuo de los boxes en una sola pasada. Diseño propio, único en el país.",
-    "boton_consultar": "Consultar por Equilimpia →",
+    "boton_consultar": "Preguntarle al asistente por Equilimpia →",
 
     "paso1_titulo": "Aspiración",
     "paso1_texto": "Turbina centrífuga con manguera de 8\" que aspira el residuo directamente del box.",
@@ -65,7 +65,7 @@
     "eyebrow": "Espacios verdes y municipios",
     "titulo": "Recicla tu entorno, cultiva tu futuro",
     "tagline": "Junta, tritura y guarda hojas y restos de poda en una sola máquina. Anda con motor propio o enganchada al tractor.",
-    "boton_consultar": "Consultar por el Biorecolector 4500 →",
+    "boton_consultar": "Preguntarle al asistente por el Biorecolector 4500 →",
 
     "paso1_titulo": "Recolección",
     "paso1_texto": "Turbina con manguera de 4-5\" y caudal de aire de 1000-1500 m³/hora.",
@@ -158,5 +158,14 @@
 
   "footer": {
     "tagline": "Maquinaria argentina para la gestión sustentable de residuos orgánicos."
+  },
+
+  "chat": {
+    "_ayuda": "bot_url es la unica clave de aca que NO es un texto de la pagina: es la direccion de internet del asistente (bot) una vez publicado en un servidor real. Mientras quede vacia (\"\"), el boton de chat muestra el mensaje de 'en preparacion' de abajo en vez de abrir el asistente. Cuando el bot este online con dominio propio, pegar aca esa direccion SIN barra al final, ej: \"https://asistente.sincmaquinarias.com.ar\" (ver DESPLIEGUE-CHAT.md en la raiz del repo).",
+    "bot_url": "",
+    "boton_flotante_titulo": "Hablar con el asistente",
+    "panel_titulo": "Asistente SINC Maquinarias",
+    "no_configurado_titulo": "Asistente en preparación",
+    "no_configurado_texto": "Muy pronto vas a poder consultarle acá directamente a nuestro asistente virtual. Mientras tanto, escribinos por WhatsApp o email — los datos están al pie de la página."
   }
 }

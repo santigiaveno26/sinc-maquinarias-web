@@ -12,8 +12,6 @@
   --gold:#9c7a3c;
   --gold-soft:#c9ab6e;
   --forest:#2f4a34;
-  --whatsapp:#25D366;
-  --whatsapp-dark:#1ebe5b;
   --sombra:0 18px 48px rgba(21,28,23,.14);
   --sombra-sm:0 6px 18px rgba(21,28,23,.10);
   --radio:6px;
@@ -35,7 +33,7 @@ a{color:inherit}
 
 /* Foco visible consistente (accesibilidad + teclado) en vez del azul por defecto */
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
-.wpp-float:focus-visible{outline-offset:4px}
+.chat-toggle:focus-visible,.back-to-top:focus-visible{outline-offset:4px}
 
 /* Anclas: que el header sticky no tape el titulo al navegar */
 section,main{scroll-margin-top:64px}
@@ -82,8 +80,6 @@ section{padding:52px 0}
 }
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:translateY(0);transition-duration:.05s}
-.btn-wpp{background:var(--whatsapp);color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.28)}
-.btn-wpp:hover{background:var(--whatsapp-dark);box-shadow:0 10px 22px rgba(37,211,102,.38)}
 .btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
 .btn-dark:hover{background:var(--ink-2);box-shadow:0 10px 22px rgba(21,28,23,.28)}
 .btn-outline{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
@@ -95,7 +91,9 @@ section{padding:52px 0}
 
 .link-arrow{
   display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:.9rem;
-  color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-strong);padding-bottom:2px;
+  font-family:"Inter",sans-serif;background:none;border:0;border-bottom:1px solid var(--line-strong);
+  padding:0 0 2px;cursor:pointer;
+  color:var(--ink);text-decoration:none;
   transition:border-color .18s ease,gap .18s ease,color .18s ease;
 }
 .link-arrow:hover{border-color:var(--gold);color:var(--gold);gap:11px}
@@ -383,38 +381,79 @@ details.specs-details[open] summary::after{content:"Ocultar"}
   font-family:"Inter",sans-serif;font-size:.76rem;color:#77806f;
 }
 
-/* WhatsApp float button — unico botón flotante */
-.wpp-float{
-  position:fixed;right:18px;bottom:18px;z-index:200;
-  width:54px;height:54px;border-radius:50%;background:var(--whatsapp);
-  display:flex;align-items:center;justify-content:center;color:#fff;
-  box-shadow:0 10px 26px rgba(0,0,0,.28);text-decoration:none;
-  transition:transform .2s ease,box-shadow .2s ease;
+/* Widget de chat — botón flotante + panel (unico punto de contacto destacado) */
+.chat-toggle{
+  position:fixed;right:18px;bottom:18px;z-index:210;
+  width:56px;height:56px;border-radius:50%;background:var(--ink);border:0;
+  display:flex;align-items:center;justify-content:center;color:var(--gold-soft);
+  box-shadow:0 10px 26px rgba(21,28,23,.32);cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
 }
-.wpp-float:hover{transform:scale(1.1);box-shadow:0 14px 32px rgba(0,0,0,.34)}
-.wpp-float:active{transform:scale(1.02)}
-.wpp-float svg{width:26px;height:26px}
-.wpp-float::before{
-  content:"";position:absolute;inset:0;border-radius:50%;background:var(--whatsapp);
-  animation:wpp-pulse 2.6s ease-out infinite;z-index:-1;
+.chat-toggle:hover{transform:scale(1.08);box-shadow:0 14px 32px rgba(21,28,23,.4);background:var(--ink-2)}
+.chat-toggle:active{transform:scale(1.02)}
+.chat-toggle svg{width:26px;height:26px}
+.chat-toggle::before{
+  content:"";position:absolute;inset:0;border-radius:50%;background:var(--ink);
+  animation:chat-pulse 2.8s ease-out infinite;z-index:-1;
 }
-@media(prefers-reduced-motion: reduce){.wpp-float::before{animation:none}}
-@keyframes wpp-pulse{
-  0%{opacity:.5;transform:scale(1)}
+@media(prefers-reduced-motion: reduce){.chat-toggle::before{animation:none}}
+@keyframes chat-pulse{
+  0%{opacity:.45;transform:scale(1)}
   100%{opacity:0;transform:scale(1.7)}
 }
+.chat-toggle[aria-expanded="true"]{background:var(--ink-2)}
+
+.chat-panel{
+  position:fixed;right:18px;bottom:86px;z-index:209;
+  width:380px;max-width:calc(100vw - 32px);height:min(560px, calc(100vh - 120px));
+  background:#fff;border-radius:10px;box-shadow:0 26px 60px rgba(21,28,23,.32);
+  display:flex;flex-direction:column;overflow:hidden;
+  border:1px solid var(--line);
+}
+.chat-panel[hidden]{display:none}
+@media(max-width:520px){
+  .chat-panel{
+    right:12px;left:12px;bottom:12px;width:auto;max-width:none;
+    height:min(72vh, 620px);
+  }
+}
+.chat-panel-header{
+  flex:none;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;background:var(--ink);color:#fff;
+  font-family:"Inter",sans-serif;font-weight:700;font-size:.92rem;
+}
+.chat-panel-close{
+  background:none;border:0;color:#c4cbc2;cursor:pointer;padding:4px;display:flex;
+  transition:color .15s ease,transform .15s ease;
+}
+.chat-panel-close:hover{color:#fff;transform:rotate(90deg)}
+.chat-panel-close svg{width:18px;height:18px}
+.chat-panel-body{flex:1;min-height:0;position:relative;background:var(--paper-2)}
+.chat-panel-body iframe{width:100%;height:100%;border:0;display:block}
+.chat-placeholder{
+  height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;gap:8px;padding:32px 24px;
+}
+.chat-placeholder .icon{
+  width:46px;height:46px;border-radius:50%;background:var(--paper);border:1px solid var(--line-strong);
+  display:flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:6px;
+}
+.chat-placeholder .icon svg{width:22px;height:22px}
+.chat-placeholder strong{font-family:"Inter",sans-serif;font-size:.95rem;color:var(--ink)}
+.chat-placeholder p{font-family:"Inter",sans-serif;font-size:.85rem;color:var(--text-soft);margin:0;max-width:280px}
 
 /* Volver arriba */
 .back-to-top{
-  position:fixed;right:18px;bottom:82px;z-index:199;
+  position:fixed;right:18px;bottom:84px;z-index:199;
   width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid var(--line-strong);
   display:flex;align-items:center;justify-content:center;color:var(--ink);box-shadow:var(--sombra-sm);
   cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);
-  transition:opacity .2s ease,transform .2s ease,background-color .15s ease;
+  transition:opacity .2s ease,transform .2s ease,background-color .15s ease,right .2s ease;
 }
 .back-to-top.is-visible{opacity:1;pointer-events:auto;transform:translateY(0)}
 .back-to-top:hover{background:var(--ink);color:#fff}
 .back-to-top svg{width:18px;height:18px}
+@media(min-width:521px){.back-to-top{right:86px;bottom:18px}}
 
 .skip-link{position:absolute;left:-999px;top:0;background:#fff;padding:10px 16px;z-index:999}
 .skip-link:focus{left:10px;top:10px}
