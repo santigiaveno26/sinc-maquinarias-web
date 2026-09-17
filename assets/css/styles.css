@@ -12,6 +12,8 @@
   --gold:#9c7a3c;
   --gold-soft:#c9ab6e;
   --forest:#2f4a34;
+  --whatsapp:#25D366;
+  --whatsapp-dark:#1ebe5b;
   --sombra:0 18px 48px rgba(21,28,23,.14);
   --sombra-sm:0 6px 18px rgba(21,28,23,.10);
   --radio:6px;
@@ -82,6 +84,10 @@ section{padding:52px 0}
 .btn:active{transform:translateY(0);transition-duration:.05s}
 .btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
 .btn-dark:hover{background:var(--ink-2);box-shadow:0 10px 22px rgba(21,28,23,.28)}
+.btn-accent{background:var(--gold-soft);color:var(--ink);box-shadow:0 4px 14px rgba(156,122,60,.3)}
+.btn-accent:hover{background:var(--gold);box-shadow:0 10px 22px rgba(156,122,60,.4)}
+.btn-wpp{background:var(--whatsapp);color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.28)}
+.btn-wpp:hover{background:var(--whatsapp-dark);box-shadow:0 10px 22px rgba(37,211,102,.38)}
 .btn-outline{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
 .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
 .btn-outline-dark{border-color:var(--line-strong);color:var(--text);background:transparent}
