@@ -56,8 +56,9 @@
     "aplicaciones": "haras y studs, canchas de polo, centros de adiestramiento, establecimientos ecuestres escolares, y adaptable a otros usos ganaderos, como criaderos de aves.",
 
     "video_titulo": "Equilimpia en video",
-    "video_placeholder_titulo": "Próximamente: video real en funcionamiento",
-    "video_placeholder_texto": "Estamos preparando material audiovisual de esta máquina trabajando en campo."
+    "video1_caption": "Vista aérea en el campo",
+    "video2_caption": "Detalle de la máquina",
+    "video3_caption": "Esparcido en acción"
   },
 
   "biorecolector": {

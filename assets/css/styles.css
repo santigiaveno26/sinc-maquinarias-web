@@ -144,26 +144,25 @@ section{padding:52px 0}
   .nav-toggle{display:block}
 }
 
-/* Hero */
+/* Hero — sin imagenes, composicion tipografica centrada */
 .hero{position:relative;overflow:hidden;background:var(--ink);color:#fff;padding:0}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:52px 0 44px}
-@media(max-width:960px){.hero-grid{grid-template-columns:1fr;padding:36px 0 8px;text-align:center}}
+.hero-plain-inner{
+  max-width:720px;margin:0 auto;text-align:center;
+  padding:76px 20px 56px;display:flex;flex-direction:column;align-items:center;
+}
+@media(min-width:900px){.hero-plain-inner{padding:104px 20px 68px}}
 
-.hero .eyebrow{color:var(--gold-soft)}
-.hero .eyebrow::before{background:var(--gold-soft)}
-@media(max-width:960px){.hero .eyebrow{justify-content:center}.hero .eyebrow::before{display:none}}
+.hero .eyebrow{color:var(--gold-soft);justify-content:center}
+.hero .eyebrow::before{display:none}
 
-.hero h1{font-size:clamp(1.9rem,4.4vw,3.1rem);color:#fdfcf9;font-weight:600}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);color:#fdfcf9;font-weight:600}
 .hero h1 .accent{color:var(--gold-soft);font-style:italic}
-.hero p.lead{font-family:"Inter",sans-serif;font-size:1.02rem;color:#c4cbc2;max-width:480px;line-height:1.7}
-@media(max-width:960px){.hero p.lead{margin-left:auto;margin-right:auto}}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;align-items:center}
-@media(max-width:960px){.hero-cta{justify-content:center}}
+.hero p.lead{font-family:"Inter",sans-serif;font-size:1.05rem;color:#c4cbc2;max-width:520px;line-height:1.7;margin-left:auto;margin-right:auto}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;align-items:center;justify-content:center}
 
 .trust-list{
-  display:flex;gap:0;flex-wrap:wrap;margin-top:38px;border-top:1px solid rgba(255,255,255,.14);padding-top:22px;
+  display:flex;gap:0;flex-wrap:wrap;justify-content:center;margin-top:40px;border-top:1px solid rgba(255,255,255,.14);padding-top:22px;
 }
-@media(max-width:960px){.trust-list{justify-content:center}}
 .trust-item{
   font-family:"Inter",sans-serif;font-size:.78rem;color:#a9b0a4;letter-spacing:.02em;
   padding:0 20px 0 0;margin-right:20px;border-right:1px solid rgba(255,255,255,.14);
@@ -174,29 +173,6 @@ section{padding:52px 0}
   .trust-item{border-right:0;margin-right:0;padding-right:0}
 }
 
-.hero-media{position:relative}
-.media-card{
-  background:#fff;padding:10px;box-shadow:var(--sombra);
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;
-}
-@media(max-width:960px){.hero-media{max-width:460px;margin:0 auto}}
-@media(max-width:480px){.media-card{grid-template-columns:1fr;gap:8px}}
-
-.media-tile{
-  position:relative;display:block;overflow:hidden;aspect-ratio:4/3;
-  background:var(--paper-2);text-decoration:none;
-}
-.media-tile img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform .5s ease;
-}
-.media-tile:hover img{transform:scale(1.06)}
-.media-tile-label{
-  position:absolute;left:0;right:0;bottom:0;padding:8px 10px 7px;
-  background:linear-gradient(0deg, rgba(21,28,23,.78), rgba(21,28,23,0));
-  color:#fff;font-family:"Inter",sans-serif;font-size:.74rem;font-weight:600;
-  letter-spacing:.02em;
-}
 
 /* Quick jump strip under hero */
 .quick-jump{background:var(--ink-2);border-top:1px solid rgba(255,255,255,.08)}
@@ -229,9 +205,13 @@ section{padding:52px 0}
 
 .prod-hero{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-bottom:44px}
 @media(max-width:860px){.prod-hero{grid-template-columns:1fr;gap:24px}}
-.prod-hero-media{border:1px solid var(--line);background:#fff;padding:10px;overflow:hidden}
-.prod-hero-media img{width:100%;transition:transform .5s ease}
+.prod-hero-media{
+  border:1px solid var(--line);background:#fff;padding:10px;overflow:hidden;
+  aspect-ratio:4/5;max-height:520px;
+}
+.prod-hero-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .prod-hero-media:hover img{transform:scale(1.04)}
+@media(max-width:860px){.prod-hero-media{aspect-ratio:4/3;max-height:420px}}
 .prod-hero-copy .tagline{font-family:"Inter",sans-serif;font-size:1rem;color:var(--text-soft);line-height:1.7}
 .prod-hero-copy .actions{margin-top:20px}
 
