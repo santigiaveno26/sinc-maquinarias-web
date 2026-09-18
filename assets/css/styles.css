@@ -84,10 +84,8 @@ section{padding:52px 0}
 .btn:active{transform:translateY(0);transition-duration:.05s}
 .btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
 .btn-dark:hover{background:var(--ink-2);box-shadow:0 10px 22px rgba(21,28,23,.28)}
-.btn-accent{background:var(--gold-soft);color:var(--ink);box-shadow:0 4px 14px rgba(156,122,60,.3)}
-.btn-accent:hover{background:var(--gold);box-shadow:0 10px 22px rgba(156,122,60,.4)}
-.btn-wpp{background:var(--whatsapp);color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.28)}
-.btn-wpp:hover{background:var(--whatsapp-dark);box-shadow:0 10px 22px rgba(37,211,102,.38)}
+.btn-wpp{background:var(--whatsapp-dark);color:#fff;border-color:var(--whatsapp-dark)}
+.btn-wpp:hover{background:var(--whatsapp);border-color:var(--whatsapp)}
 .btn-outline{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
 .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
 .btn-outline-dark{border-color:var(--line-strong);color:var(--text);background:transparent}
@@ -390,23 +388,14 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 /* Widget de chat — botón flotante + panel (unico punto de contacto destacado) */
 .chat-toggle{
   position:fixed;right:18px;bottom:18px;z-index:210;
-  width:56px;height:56px;border-radius:50%;background:var(--ink);border:0;
+  width:52px;height:52px;border-radius:50%;background:var(--ink);border:0;
   display:flex;align-items:center;justify-content:center;color:var(--gold-soft);
-  box-shadow:0 10px 26px rgba(21,28,23,.32);cursor:pointer;
+  box-shadow:0 6px 16px rgba(21,28,23,.22);cursor:pointer;
   transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
 }
-.chat-toggle:hover{transform:scale(1.08);box-shadow:0 14px 32px rgba(21,28,23,.4);background:var(--ink-2)}
+.chat-toggle:hover{transform:scale(1.05);box-shadow:0 8px 20px rgba(21,28,23,.28);background:var(--ink-2)}
 .chat-toggle:active{transform:scale(1.02)}
-.chat-toggle svg{width:26px;height:26px}
-.chat-toggle::before{
-  content:"";position:absolute;inset:0;border-radius:50%;background:var(--ink);
-  animation:chat-pulse 2.8s ease-out infinite;z-index:-1;
-}
-@media(prefers-reduced-motion: reduce){.chat-toggle::before{animation:none}}
-@keyframes chat-pulse{
-  0%{opacity:.45;transform:scale(1)}
-  100%{opacity:0;transform:scale(1.7)}
-}
+.chat-toggle svg{width:24px;height:24px}
 .chat-toggle[aria-expanded="true"]{background:var(--ink-2)}
 
 .chat-panel{
