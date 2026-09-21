@@ -174,17 +174,6 @@ section{padding:52px 0}
 }
 
 
-/* Quick jump strip under hero */
-.quick-jump{background:var(--ink-2);border-top:1px solid rgba(255,255,255,.08)}
-.quick-jump .container{display:flex;gap:2px;padding:0;overflow-x:auto;scrollbar-width:none}
-.quick-jump .container::-webkit-scrollbar{display:none}
-.quick-jump a{
-  flex:none;font-family:"Inter",sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.04em;
-  color:#9aa295;text-decoration:none;padding:14px 18px;white-space:nowrap;
-  border-bottom:2px solid transparent;transition:color .15s ease,border-color .15s ease,background-color .15s ease;
-}
-.quick-jump a:hover{color:#fff;border-color:var(--gold-soft);background:rgba(255,255,255,.04)}
-
 /* ===== Productos: tabs ===== */
 .bg-soft{background:var(--paper-2)}
 .tabs-nav{display:flex;gap:0;justify-content:center;border-bottom:1px solid var(--line);margin-bottom:44px}
