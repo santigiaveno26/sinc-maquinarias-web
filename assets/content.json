@@ -165,6 +165,10 @@
     "bot_url": "",
     "boton_flotante_titulo": "Hablar con el asistente",
     "panel_titulo": "Asistente SINC Maquinarias",
+    "conectando_titulo": "Conectando…",
+    "offline_titulo": "Asistente fuera de línea",
+    "offline_texto": "Por el momento el asistente no está disponible. Escribinos por WhatsApp y te respondemos a la brevedad.",
+    "offline_boton": "Escribir por WhatsApp",
     "no_configurado_titulo": "Asistente en preparación",
     "no_configurado_texto": "Muy pronto vas a poder consultarle acá directamente a nuestro asistente virtual. Mientras tanto, escribinos por WhatsApp o email — los datos están al pie de la página."
   }

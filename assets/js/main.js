@@ -180,32 +180,74 @@ function initChatWidget(data) {
     ? getValueByPath(data, 'chat.bot_url').trim().replace(/\/$/, '')
     : '';
 
-  let bodyBuilt = false;
-  function buildBody() {
-    if (bodyBuilt) return;
-    bodyBuilt = true;
-    if (botUrl) {
-      const iframe = document.createElement('iframe');
-      iframe.src = botUrl + '/chat';
-      iframe.title = getValueByPath(data, 'chat.panel_titulo') || 'Asistente SINC Maquinarias';
-      iframe.allow = 'microphone';
-      chatPanelBody.appendChild(iframe);
-    } else {
-      const titulo = (data && getValueByPath(data, 'chat.no_configurado_titulo'))
-        || 'Asistente en preparación';
-      const texto = (data && getValueByPath(data, 'chat.no_configurado_texto'))
-        || 'Muy pronto vas a poder consultarle acá directamente a nuestro asistente virtual. Mientras tanto, escribinos por WhatsApp o email — los datos están al pie de la página.';
-      chatPanelBody.innerHTML = `
-        <div class="chat-placeholder">
-          <span class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          </span>
-          <strong></strong>
-          <p></p>
-        </div>`;
-      chatPanelBody.querySelector('strong').textContent = titulo;
-      chatPanelBody.querySelector('p').textContent = texto;
+  const WPP_URL = 'https://wa.me/5493471332479?text=Hola%20SINC%20Maquinarias%2C%20quiero%20consultar%20por%20sus%20m%C3%A1quinas';
+  const ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>';
+  const txt = (key, fallback) => (data && getValueByPath(data, key)) || fallback;
+
+  function showMessage(titulo, texto, conWhatsapp) {
+    chatPanelBody.innerHTML = `
+      <div class="chat-placeholder">
+        <span class="icon">${ICON}</span>
+        <strong></strong>
+        <p></p>
+      </div>`;
+    const box = chatPanelBody.querySelector('.chat-placeholder');
+    box.querySelector('strong').textContent = titulo;
+    box.querySelector('p').textContent = texto;
+    if (conWhatsapp) {
+      const a = document.createElement('a');
+      a.className = 'btn btn-wpp';
+      a.href = WPP_URL;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = txt('chat.offline_boton', 'Escribir por WhatsApp');
+      box.appendChild(a);
     }
+  }
+
+  // El bot corre en una PC local: puede estar apagado. Se consulta /health
+  // (con CORS, asi un 404 del tunel caido tambien cuenta como "apagado")
+  // antes de mostrar el iframe.
+  async function botOnline() {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 5000);
+    try {
+      const r = await fetch(botUrl + '/health', { signal: ctrl.signal, cache: 'no-store' });
+      return r.ok;
+    } catch (e) {
+      return false;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  let bodyBuilt = false;
+  let checking = false;
+  async function buildBody() {
+    if (bodyBuilt || checking) return;
+    if (!botUrl) {
+      bodyBuilt = true;
+      showMessage(txt('chat.no_configurado_titulo', 'Asistente en preparación'),
+        txt('chat.no_configurado_texto', 'Muy pronto vas a poder consultarle acá directamente a nuestro asistente virtual. Mientras tanto, escribinos por WhatsApp.'), true);
+      return;
+    }
+    checking = true;
+    showMessage(txt('chat.conectando_titulo', 'Conectando…'), '', false);
+    const online = await botOnline();
+    checking = false;
+    if (!online) {
+      // No se marca bodyBuilt: al volver a abrir el panel se reintenta.
+      showMessage(txt('chat.offline_titulo', 'Asistente fuera de línea'),
+        txt('chat.offline_texto', 'Por el momento el asistente no está disponible. Escribinos por WhatsApp y te respondemos a la brevedad.'), true);
+      return;
+    }
+    bodyBuilt = true;
+    chatPanelBody.innerHTML = '';
+    const iframe = document.createElement('iframe');
+    iframe.src = botUrl + '/chat';
+    iframe.title = txt('chat.panel_titulo', 'Asistente SINC Maquinarias');
+    iframe.allow = 'microphone';
+    chatPanelBody.appendChild(iframe);
   }
 
   function openChat() {

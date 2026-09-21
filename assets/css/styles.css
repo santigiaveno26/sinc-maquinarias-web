@@ -437,3 +437,4 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 
 .skip-link{position:absolute;left:-999px;top:0;background:#fff;padding:10px 16px;z-index:999}
 .skip-link:focus{left:10px;top:10px}
+.chat-placeholder .btn{margin-top:10px}
