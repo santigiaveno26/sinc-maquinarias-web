@@ -28,7 +28,7 @@ function activateTab(name, scroll) {
 }
 
 tabButtons.forEach((btn, i) => {
-  btn.addEventListener('click', () => activateTab(btn.dataset.tab, false));
+  btn.addEventListener('click', () => { track('ver_maquina', { maquina: btn.dataset.tab }); activateTab(btn.dataset.tab, false); });
   // Navegacion por teclado: flechas izquierda/derecha entre pestañas (patron ARIA tabs)
   btn.addEventListener('keydown', (e) => {
     if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
@@ -75,6 +75,43 @@ function getValueByPath(data, dotted) {
   return value;
 }
 
+/**
+ * Analitica (Google Analytics 4)
+ * -----------------------------------------------------------------
+ * Se activa solo si assets/content.json tiene analytics.ga_id (formato
+ * "G-XXXXXXXXXX"). Sin ID no se carga nada ni se manda ningun dato.
+ * track() es seguro de llamar siempre: no hace nada si no esta activa.
+ */
+function track(name, params) {
+  try {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  } catch (e) { /* la analitica nunca debe romper la pagina */ }
+}
+function initAnalytics(data) {
+  const id = data && getValueByPath(data, 'analytics.ga_id');
+  if (typeof id !== 'string' || !/^G-[A-Z0-9]+$/.test(id.trim())) return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', id.trim(), { anonymize_ip: true });
+  const sc = document.createElement('script');
+  sc.async = true;
+  sc.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id.trim());
+  document.head.appendChild(sc);
+}
+
+// Clicks en contacto (WhatsApp, mail, Instagram, mapa), por delegacion.
+document.addEventListener('click', (e) => {
+  const a = e.target.closest && e.target.closest('a[href]');
+  if (!a) return;
+  const h = a.getAttribute('href');
+  const where = a.closest('.hero') ? 'portada' : a.closest('.site-footer') ? 'pie' : 'otro';
+  if (h.includes('wa.me')) track('click_whatsapp', { ubicacion: where });
+  else if (h.startsWith('mailto:')) track('click_email', { ubicacion: where });
+  else if (h.includes('instagram.com')) track('click_instagram', { ubicacion: where });
+  else if (h.includes('google.com/maps')) track('click_mapa', { ubicacion: where });
+});
+
 fetch('assets/content.json', { cache: 'no-store' })
   .then(res => (res.ok ? res.json() : null))
   .then(data => {
@@ -86,6 +123,7 @@ fetch('assets/content.json', { cache: 'no-store' })
         }
       });
     }
+    initAnalytics(data);
     initChatWidget(data);
   })
   .catch(() => {
@@ -314,6 +352,7 @@ function initChatWidget(data) {
       text = text.trim();
       if (!text) return;
       suggest.remove();
+      track('chat_mensaje');
       addMsg(text, 'user');
       input.value = '';
       input.disabled = send.disabled = true;
@@ -341,6 +380,7 @@ function initChatWidget(data) {
   }
 
   function openChat() {
+    track('chat_abierto');
     buildBody();
     chatPanel.hidden = false;
     chatToggle.setAttribute('aria-expanded', 'true');

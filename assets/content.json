@@ -176,5 +176,10 @@
     "offline_boton": "Escribir por WhatsApp",
     "no_configurado_titulo": "Asistente en preparación",
     "no_configurado_texto": "Muy pronto vas a poder consultarle acá directamente a nuestro asistente virtual. Mientras tanto, escribinos por WhatsApp o email — los datos están al pie de la página."
+  },
+
+  "analytics": {
+    "_ayuda": "ga_id es el ID de medicion de Google Analytics 4 (formato G-XXXXXXXXXX). Vacio = no se mide nada. No es un texto de la pagina.",
+    "ga_id": ""
   }
 }

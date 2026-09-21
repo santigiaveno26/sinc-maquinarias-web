@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://santigiaveno26.github.io/sinc-maquinarias-web/sitemap.xml
