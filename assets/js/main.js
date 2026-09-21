@@ -213,8 +213,10 @@ function initChatWidget(data) {
     const timer = setTimeout(() => ctrl.abort(), 5000);
     try {
       const r = await fetch(botUrl + '/health', { signal: ctrl.signal, cache: 'no-store' });
+      if (!r.ok) console.warn('[chat] /health respondio', r.status);
       return r.ok;
     } catch (e) {
+      console.warn('[chat] no se pudo consultar', botUrl + '/health', e);
       return false;
     } finally {
       clearTimeout(timer);
