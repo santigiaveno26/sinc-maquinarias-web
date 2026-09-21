@@ -244,12 +244,100 @@ function initChatWidget(data) {
       return;
     }
     bodyBuilt = true;
-    chatPanelBody.innerHTML = '';
-    const iframe = document.createElement('iframe');
-    iframe.src = botUrl + '/chat';
-    iframe.title = txt('chat.panel_titulo', 'Asistente SINC Maquinarias');
-    iframe.allow = 'microphone';
-    chatPanelBody.appendChild(iframe);
+    buildChat();
+  }
+
+  // Chat propio de la pagina: usa solo el motor del bot (POST /api/chat-web),
+  // sin la interfaz del bot.
+  function escapeHtml(t) {
+    return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function formatReply(t) {
+    return escapeHtml(t)
+      .replace(/\*\*?([^*\n]+)\*\*?/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br>');
+  }
+  function getSessionId() {
+    try {
+      let id = localStorage.getItem('sinc_chat_sid');
+      if (!id) {
+        id = 'lp_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+        localStorage.setItem('sinc_chat_sid', id);
+      }
+      return id;
+    } catch (e) {
+      return 'lp_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+    }
+  }
+
+  function buildChat() {
+    const sid = getSessionId();
+    chatPanelBody.innerHTML = `
+      <div class="chat-app">
+        <div class="chat-log" id="chatLog" aria-live="polite"></div>
+        <div class="chat-suggest" id="chatSuggest"></div>
+        <form class="chat-form" id="chatForm" autocomplete="off">
+          <input type="text" id="chatInput" maxlength="800" placeholder="Escribí tu consulta…" aria-label="Tu mensaje">
+          <button type="submit" id="chatSend" aria-label="Enviar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>`;
+    const log = chatPanelBody.querySelector('#chatLog');
+    const form = chatPanelBody.querySelector('#chatForm');
+    const input = chatPanelBody.querySelector('#chatInput');
+    const send = chatPanelBody.querySelector('#chatSend');
+    const suggest = chatPanelBody.querySelector('#chatSuggest');
+
+    function addMsg(text, who, html) {
+      const el = document.createElement('div');
+      el.className = 'chat-msg chat-msg-' + who;
+      if (html) el.innerHTML = text; else el.textContent = text;
+      log.appendChild(el);
+      log.scrollTop = log.scrollHeight;
+      return el;
+    }
+
+    addMsg(txt('chat.saludo', 'Hola, soy el asistente de SINC Maquinarias. ¿En qué te puedo ayudar?'), 'bot');
+
+    [txt('chat.sugerencia1', '¿Qué es la Equilimpia?'),
+     txt('chat.sugerencia2', '¿Para qué sirve el Biorecolector 4500?'),
+     txt('chat.sugerencia3', '¿Cómo pido un presupuesto?')].forEach(q => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = q;
+      b.addEventListener('click', () => ask(q));
+      suggest.appendChild(b);
+    });
+
+    async function ask(text) {
+      text = text.trim();
+      if (!text) return;
+      suggest.remove();
+      addMsg(text, 'user');
+      input.value = '';
+      input.disabled = send.disabled = true;
+      const typing = addMsg('<span></span><span></span><span></span>', 'typing', true);
+      try {
+        const r = await fetch(botUrl + '/api/chat-web', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sesion_id: sid, mensaje: text })
+        });
+        const d = await r.json();
+        typing.remove();
+        if (!r.ok) throw new Error(d.detail || 'error');
+        addMsg(formatReply(d.respuesta), 'bot', true);
+      } catch (e) {
+        typing.remove();
+        addMsg(txt('chat.error', 'No pude responder en este momento. Probá de nuevo o escribinos por WhatsApp.'), 'bot');
+      } finally {
+        input.disabled = send.disabled = false;
+        input.focus();
+      }
+    }
+    form.addEventListener('submit', (e) => { e.preventDefault(); ask(input.value); });
+    input.focus();
   }
 
   function openChat() {
