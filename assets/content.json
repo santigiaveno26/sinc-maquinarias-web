@@ -162,7 +162,7 @@
 
   "chat": {
     "_ayuda": "bot_url es la unica clave de aca que NO es un texto de la pagina: es la direccion de internet del asistente (bot) una vez publicado en un servidor real. Mientras quede vacia (\"\"), el boton de chat muestra el mensaje de 'en preparacion' de abajo en vez de abrir el asistente. Cuando el bot este online con dominio propio, pegar aca esa direccion SIN barra al final, ej: \"https://asistente.sincmaquinarias.com.ar\" (ver DESPLIEGUE-CHAT.md en la raiz del repo).",
-    "bot_url": "",
+    "bot_url": "https://santi.tail4fedad.ts.net",
     "boton_flotante_titulo": "Hablar con el asistente",
     "panel_titulo": "Asistente SINC Maquinarias",
     "conectando_titulo": "Conectando…",
