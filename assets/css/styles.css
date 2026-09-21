@@ -385,7 +385,7 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 
 .chat-panel{
   position:fixed;right:18px;bottom:86px;z-index:209;
-  width:420px;max-width:calc(100vw - 32px);height:min(640px, calc(100vh - 110px));
+  width:340px;max-width:calc(100vw - 32px);height:min(470px, calc(100vh - 110px));
   background:#fff;border-radius:10px;box-shadow:0 26px 60px rgba(21,28,23,.32);
   display:flex;flex-direction:column;overflow:hidden;
   border:1px solid var(--line);
@@ -394,7 +394,7 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 @media(max-width:520px){
   .chat-panel{
     right:12px;left:12px;bottom:12px;width:auto;max-width:none;
-    height:min(72vh, 620px);
+    height:min(62vh, 480px);
   }
 }
 .chat-panel-header{
