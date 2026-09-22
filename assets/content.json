@@ -7,7 +7,7 @@
     "boton_whatsapp_texto": "Hablar por WhatsApp",
     "boton_secundario": "Ver máquinas",
     "trust_1": "Única en el país",
-    "trust_2": "Fabricación nacional",
+    "trust_2": "Diseño patentado",
     "trust_3": "Garantía de fábrica 12 meses"
   },
 
@@ -25,14 +25,14 @@
     "boton_consultar": "Preguntarle al asistente por Equilimpia →",
 
     "paso1_titulo": "Aspiración",
-    "paso1_texto": "Turbina centrífuga con manguera de 8\" que aspira el residuo directamente del box.",
+    "paso1_texto": "Turbina centrífuga con manguera de 8\" que aspira la liga fuera del box.",
     "paso2_titulo": "Traslado higiénico",
     "paso2_texto": "Tolva hermética de 5,5 m³ (hasta 500 kg), sin contacto manual con el residuo.",
     "paso3_titulo": "Esparcido",
     "paso3_texto": "Rotores con púas dispersan el material de forma uniforme, como fertilizante.",
 
     "benef1": "Reduce el tiempo de limpieza diaria",
-    "benef2": "Reduce el numero de personal",
+    "benef2": "Trabajas con menos personal",
     "benef3": "Baja el amoníaco y las plagas del establo",
     "benef4": "Devuelve nutrientes al suelo como abono",
 
@@ -53,7 +53,7 @@
     "spec8_label": "Garantía",
     "spec8_valor": "12 meses de fábrica",
 
-    "aplicaciones": "haras y studs, canchas de polo, centros de adiestramiento, establecimientos ecuestres escolares, y adaptable a otros usos ganaderos, como criaderos de aves.",
+    "aplicaciones": "haras y studs, clubes de polo, centros de adiestramiento, establecimientos ecuestres escolares, y adaptable a otros usos ganaderos, como criaderos de gallinas o tambos.",
 
     "video_titulo": "Equilimpia en video",
     "video1_caption": "Vista aérea en el campo",
@@ -65,20 +65,20 @@
     "tab": "Biorecolector 4500",
     "eyebrow": "Espacios verdes y municipios",
     "titulo": "Recicla tu entorno, cultiva tu futuro",
-    "tagline": "Junta, tritura y guarda hojas y restos de poda en una sola máquina. Anda con motor propio o enganchada al tractor.",
+    "tagline": "Aspira, compacta y guarda hojas y restos de poda en una sola máquina. Anda con motor propio, enganchada a un tractor.",
     "boton_consultar": "Preguntarle al asistente por el Biorecolector 4500 →",
 
     "paso1_titulo": "Recolección",
     "paso1_texto": "Turbina con manguera de 4-5\" y caudal de aire de 1000-1500 m³/hora.",
-    "paso2_titulo": "Trituración",
+    "paso2_titulo": "Compactación",
     "paso2_texto": "Rodillo interno que reduce el volumen de 5 a 7 veces en una tolva de 450-550 L.",
     "paso3_titulo": "Descarga",
-    "paso3_texto": "Compuerta tipo guillotina, descarga por gravedad, lista para compostar.",
+    "paso3_texto": "Compuerta de apertura hidráulica que descarga el material triturado, listo para compostar.",
 
     "benef1": "Reduce el tiempo de limpieza",
-    "benef2": "Se puede usar con menos personal",
-    "benef3": "Reduce mucho el volumen del residuo",
-    "benef4": "Deja el material listo para compostar",
+    "benef2": "Trabajas con menos personal",
+    "benef3": "Reduce el volumen del residuo",
+    "benef4": "Deja el material listo para compostar/reciclar",
 
     "spec1_label": "Dimensiones",
     "spec1_valor": "2500 × 1800 × 1600 mm",
@@ -88,16 +88,10 @@
     "spec3_valor": "450-550 L, acero galvanizado + epoxi",
     "spec4_label": "Motor autónomo",
     "spec4_valor": "13-18 HP",
-    "spec5_label": "Enganche a tractor",
-    "spec5_valor": "desde 40 HP, TDF",
-    "spec6_label": "Trituración",
-    "spec6_valor": "ratio 5:1 a 7:1, ramas hasta 3-5 cm",
-    "spec7_label": "Nivel de ruido",
-    "spec7_valor": "80-85 dB, parada de emergencia",
-    "spec8_label": "Garantía",
-    "spec8_valor": "12 meses de fábrica",
+    "spec5_label": "Garantía",
+    "spec5_valor": "12 meses de fábrica",
 
-    "aplicaciones": "municipios y espacios verdes públicos, empresas de paisajismo, parques y clubes privados, viveros e instituciones (escuelas, hospitales, universidades).",
+    "aplicaciones": "municipios y espacios verdes públicos, empresas de paisajismo, parques y clubes privados y viveros",
 
     "video_titulo": "El Biorecolector 4500 en funcionamiento",
     "video1_caption": "Aspiración de hojas",
@@ -111,7 +105,7 @@
     "lead": "Ejemplos de uso según el tipo de establecimiento y su tamaño.",
 
     "caso1_sector": "Sector ecuestre · caso real",
-    "caso1_titulo": "Haras Los Turfistas · 120 boxes",
+    "caso1_titulo": "Haras con 120 boxes",
     "caso1_texto": "Socio estratégico en el desarrollo de Equilimpia, con reducción de horas de trabajo y compost reutilizable mensual.",
     "caso1_resultado": "Bajó mucho el tiempo de limpieza diaria",
 
@@ -140,12 +134,12 @@
     "caso6_texto": "Se libera espacio de acopio y se acelera el compostaje al procesar el residuo en el momento.",
     "caso6_resultado": "Libera espacio de acopio",
 
-    "disclaimer": "Los escenarios de centro ecuestre, criadero de gallinas, municipio, paisajismo y vivero son ejemplos ilustrativos de aplicación, no testimonios de clientes con nombre y apellido. El caso de Haras Los Turfistas corresponde a nuestro socio estratégico fundacional en el desarrollo de Equilimpia."
+    "disclaimer": "Los escenarios son ejemplos ilustrativos de aplicación, no testimonios de clientes con nombre y apellido."
   },
 
   "about": {
     "eyebrow": "Quiénes somos",
-    "titulo": "Una empresa familiar que nació de un problema real del campo",
+    "titulo": "Una empresa familiar que nació de un problema real del sector ecuestre",
     "parrafo1": "SINC Maquinarias es una pyme familiar argentina con base en Las Parejas, Santa Fe. Nacimos junto a un socio estratégico del sector ecuestre que necesitaba resolver algo que nadie resolvía: la limpieza manual e intensiva de boxes. De ahí surgió Equilimpia, y luego el Biorecolector 4500 para espacios verdes.",
     "parrafo2_negrita": "No buscamos maximizar el volumen de ventas.",
     "parrafo2_resto": "Diseñamos máquinas robustas para quienes valoran la calidad y el resultado por sobre el precio.",
@@ -153,7 +147,7 @@
     "valor2": "Del residuo al recurso",
     "valor4": "Fabricación nacional",
     "quote_texto": "\"Hoy no operaríamos sin Equilimpia. Es una inversión que paga dividendos todas las semanas.\"",
-    "quote_autor": "— Haras Los Turfistas, 120 boxes, socio estratégico en el desarrollo de Equilimpia"
+    "quote_autor": "— Haras con 120 boxes, socio estratégico en el desarrollo de Equilimpia"
   },
 
   "footer": {

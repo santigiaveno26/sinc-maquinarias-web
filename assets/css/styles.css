@@ -450,3 +450,5 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 .chat-form button:hover:not(:disabled){background:var(--ink-2)}
 .chat-form button:disabled{opacity:.5;cursor:default}
 .chat-form button svg{width:18px;height:18px}
+.chat-legal{flex:none;margin:0;padding:0 12px 10px;font-family:"Inter",sans-serif;font-size:.7rem;color:var(--text-soft);text-align:center;background:#fff}
+.chat-legal a{color:inherit;text-underline-offset:2px}
