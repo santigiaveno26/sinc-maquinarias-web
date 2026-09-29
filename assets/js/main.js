@@ -408,6 +408,26 @@ function initChatWidget(data) {
   });
 }
 
+/* Videos de los pasos: se ven como un "gif" silencioso, no como un video
+   con controles. En escritorio, se reproducen al pasar el mouse y se
+   detienen al salir. En celular (sin hover), tocar arranca/pausa. */
+const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+document.querySelectorAll('.step-media').forEach(media => {
+  const video = media.querySelector('video');
+  if (!video) return;
+  video.addEventListener('play', () => media.classList.add('is-playing'));
+  video.addEventListener('pause', () => media.classList.remove('is-playing'));
+  if (canHover) {
+    media.addEventListener('mouseenter', () => { video.play().catch(() => {}); });
+    media.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+  } else {
+    media.addEventListener('click', () => {
+      if (video.paused) video.play().catch(() => {});
+      else video.pause();
+    });
+  }
+});
+
 /* Animacion sutil al entrar en pantalla (respeta "reducir movimiento") */
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if ('IntersectionObserver' in window && !prefersReducedMotion) {

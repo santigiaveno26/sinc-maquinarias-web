@@ -215,8 +215,17 @@ section{padding:52px 0}
   display:flex;flex-direction:column;transition:box-shadow .2s ease,transform .2s ease;
 }
 .step-chip:hover{box-shadow:0 14px 28px rgba(21,28,23,.1);transform:translateY(-2px)}
-.step-media{aspect-ratio:4/5;background:var(--ink);overflow:hidden}
-.step-media video{width:100%;height:100%;object-fit:cover;display:block}
+.step-media{aspect-ratio:4/5;background:var(--ink);overflow:hidden;position:relative;cursor:pointer}
+.step-media video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.step-play-icon{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  opacity:1;transition:opacity .2s ease;
+}
+.step-play-icon svg{
+  width:22px;height:22px;color:#fff;padding:14px;border-radius:50%;
+  background:rgba(21,28,23,.45);backdrop-filter:blur(2px);
+}
+.step-media.is-playing .step-play-icon{opacity:0}
 .step-body{padding:16px 18px 20px;display:flex;gap:12px;align-items:flex-start}
 .step-chip .num{
   flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);
