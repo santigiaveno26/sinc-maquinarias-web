@@ -26,8 +26,8 @@
 
     "paso1_titulo": "Aspiración",
     "paso1_texto": "Se saca la liga del box y se aspira con la manguera.",
-    "paso2_titulo": "Traslado higiénico",
-    "paso2_texto": "Tolva hermética de 5,5 m³ (hasta 500 kg), sin contacto manual con el residuo.",
+    "paso2_titulo": "Trituración y traslado",
+    "paso2_texto": "El material se tritura y pasa a una tolva hermética de 5,5 m³ (hasta 500 kg), sin contacto manual.",
     "paso3_titulo": "Esparcido",
     "paso3_texto": "Rotores con púas dispersan el material de forma uniforme, como fertilizante.",
 
@@ -53,12 +53,7 @@
     "spec8_label": "Garantía",
     "spec8_valor": "12 meses de fábrica",
 
-    "aplicaciones": "haras y studs, clubes de polo, centros de adiestramiento, establecimientos ecuestres escolares, y adaptable a otros usos ganaderos, como criaderos de gallinas o tambos.",
-
-    "video_titulo": "Equilimpia en video",
-    "video1_caption": "Vista aérea en el campo",
-    "video2_caption": "Detalle de la máquina",
-    "video3_caption": "Esparcido en acción"
+    "aplicaciones": "haras y studs, clubes de polo, centros de adiestramiento, establecimientos ecuestres escolares, y adaptable a otros usos ganaderos, como criaderos de gallinas o tambos."
   },
 
   "biorecolector": {
@@ -91,12 +86,7 @@
     "spec5_label": "Garantía",
     "spec5_valor": "12 meses de fábrica",
 
-    "aplicaciones": "municipios y espacios verdes públicos, empresas de paisajismo, parques y clubes privados y viveros",
-
-    "video_titulo": "El Biorecolector 4500 en funcionamiento",
-    "video1_caption": "Aspiración de hojas",
-    "video2_caption": "Descarga triturada",
-    "video3_caption": "Con tractor"
+    "aplicaciones": "municipios y espacios verdes públicos, empresas de paisajismo, parques y clubes privados y viveros"
   },
 
   "casos": {
