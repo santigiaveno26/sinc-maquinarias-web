@@ -24,6 +24,9 @@
     "tagline": "Aspira, tritura y esparce el residuo de los boxes en una sola pasada. Diseño propio, único en el país.",
     "boton_consultar": "Preguntarle al asistente por Equilimpia →",
 
+    "antes": "Antes: horquilla, carretilla y volcado manual en tolva o carretón.",
+    "ahora": "Hoy: una sola máquina, en estos 3 pasos.",
+
     "paso1_titulo": "Aspiración",
     "paso1_texto": "Se saca la liga del box y se aspira con la manguera.",
     "paso2_titulo": "Trituración y traslado",
@@ -62,6 +65,9 @@
     "titulo": "Recicla tu entorno, cultiva tu futuro",
     "tagline": "Aspira, compacta y guarda hojas y restos de poda en una sola máquina. Anda con motor propio, enganchada a un tractor.",
     "boton_consultar": "Preguntarle al asistente por el Biorecolector 4500 →",
+
+    "antes": "Antes: rastrillo, bolsas y carretilla hasta el carretón o camión.",
+    "ahora": "Hoy: una sola máquina, en estos 3 pasos.",
 
     "paso1_titulo": "Recolección",
     "paso1_texto": "Turbina con manguera de 4-5\" y caudal de aire de 1000-1500 m³/hora.",
