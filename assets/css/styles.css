@@ -90,7 +90,7 @@ section{padding:52px 0}
 .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
 .btn-outline-dark{border-color:var(--line-strong);color:var(--text);background:transparent}
 .btn-outline-dark:hover{border-color:var(--ink);background:var(--paper-2)}
-.btn-sm{padding:9px 18px;font-size:.83rem}
+.btn-sm{padding:9px 18px;font-size:.83rem;min-height:44px}
 .btn-sm:hover{transform:translateY(-1px)}
 
 .link-arrow{
@@ -112,7 +112,7 @@ section{padding:52px 0}
 }
 .site-header.is-scrolled{box-shadow:0 4px 18px rgba(21,28,23,.08)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;transition:opacity .15s ease}
+.brand{display:flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;transition:opacity .15s ease}
 .brand:hover{opacity:.75}
 .brand img{height:40px;width:auto}
 .brand span{font-family:"Fraunces",serif;font-weight:600;font-size:1.05rem;color:var(--ink);letter-spacing:.01em;white-space:nowrap}
@@ -131,7 +131,7 @@ section{padding:52px 0}
 .nav-links a:hover::after,.nav-links a.active::after{right:0}
 .nav-links a.active{color:var(--ink);font-weight:700}
 .nav-cta{display:flex;align-items:center;gap:12px}
-.nav-toggle{display:none;background:none;border:0;font-size:1.5rem;cursor:pointer;color:var(--ink);padding:4px 8px;transition:transform .15s ease}
+.nav-toggle{display:none;background:none;border:0;font-size:1.5rem;cursor:pointer;color:var(--ink);padding:4px 8px;min-width:44px;min-height:44px;transition:transform .15s ease}
 .nav-toggle:hover{transform:scale(1.1)}
 
 @media(max-width:880px){
@@ -205,7 +205,7 @@ section{padding:52px 0}
 .prod-hero-media:hover img{transform:scale(1.04)}
 @media(max-width:860px){.prod-hero-media{aspect-ratio:4/3;max-height:420px}}
 .prod-hero-copy .tagline{font-family:"Inter",sans-serif;font-size:1rem;color:var(--text-soft);line-height:1.7}
-.prod-hero-copy .actions{margin-top:20px}
+.prod-hero-copy .actions{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
 
 /* Antes (trabajo manual) / Ahora (la maquina), puente hacia los 3 pasos */
 .antes-ahora{
@@ -365,17 +365,17 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 .quote-block footer{font-family:"Inter",sans-serif;font-size:.78rem;color:#9aa295;font-style:normal}
 
 /* Footer */
-.site-footer{background:var(--ink);color:#b7bcb0;padding:40px 0 20px;font-family:"Inter",sans-serif;font-size:.85rem}
+.site-footer{background:var(--ink);color:#b7bcb0;padding:40px 0 88px;font-family:"Inter",sans-serif;font-size:.85rem}
 .footer-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:28px 48px;flex-wrap:wrap}
 .footer-about{max-width:340px}
 .footer-about p{margin:0;color:#8b9184;font-size:.85rem;line-height:1.55}
 .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .footer-brand img{height:26px;filter:brightness(0) invert(1);opacity:.9}
 .footer-brand span{color:#fff;font-weight:600;font-size:.95rem}
-.footer-contact{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.footer-contact a{color:#b7bcb0;text-decoration:none;font-size:.85rem;transition:color .15s ease}
+.footer-contact{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.footer-contact a{display:block;padding:13px 0;color:#b7bcb0;text-decoration:none;font-size:.85rem;transition:color .15s ease}
 .footer-contact a:hover,.footer-bottom a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
-.footer-bottom a{color:inherit;text-decoration:none;transition:color .15s ease}
+.footer-bottom a{display:inline-block;padding:12px 0;color:inherit;text-decoration:none;transition:color .15s ease}
 .footer-bottom{
   margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
@@ -436,8 +436,8 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 
 /* Volver arriba */
 .back-to-top{
-  position:fixed;right:18px;bottom:84px;z-index:199;
-  width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid var(--line-strong);
+  position:fixed;right:78px;bottom:23px;z-index:199;
+  width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line-strong);
   display:flex;align-items:center;justify-content:center;color:var(--ink);box-shadow:var(--sombra-sm);
   cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);
   transition:opacity .2s ease,transform .2s ease,background-color .15s ease,right .2s ease;
@@ -445,7 +445,6 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 .back-to-top.is-visible{opacity:1;pointer-events:auto;transform:translateY(0)}
 .back-to-top:hover{background:var(--ink);color:#fff}
 .back-to-top svg{width:18px;height:18px}
-@media(min-width:521px){.back-to-top{right:86px;bottom:18px}}
 
 .skip-link{position:absolute;left:-999px;top:0;background:#fff;padding:10px 16px;z-index:999}
 .skip-link:focus{left:10px;top:10px}
@@ -473,3 +472,31 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 .chat-form button:hover:not(:disabled){background:var(--ink-2)}
 .chat-form button:disabled{opacity:.5;cursor:default}
 .chat-form button svg{width:18px;height:18px}
+
+/* Preguntas frecuentes */
+.faq{max-width:760px}
+.faq-list{display:grid;gap:10px}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:10px}
+.faq-item[hidden]{display:none}
+.faq-item summary{
+  position:relative;cursor:pointer;list-style:none;min-height:44px;
+  padding:15px 48px 15px 18px;font-family:"Inter",sans-serif;font-weight:600;font-size:.95rem;color:var(--ink);
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  font-weight:400;font-size:1.35rem;line-height:1;color:var(--text-soft);
+}
+.faq-item[open] summary::after{content:"\2212"}
+.faq-item p{margin:0;padding:0 18px 18px;font-family:"Inter",sans-serif;font-size:.92rem;line-height:1.65;color:var(--text-soft)}
+
+/* Cierre y contacto */
+.cta-final{text-align:center}
+.cta-final .eyebrow{justify-content:center}
+.cta-final .eyebrow::before{display:none}
+.cta-final h2{font-size:clamp(1.5rem,3.2vw,2.05rem);color:var(--ink);max-width:620px;margin:0 auto .5em}
+.cta-final p{color:var(--text-soft);max-width:520px;margin-left:auto;margin-right:auto}
+.cta-final-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:1.6em}
+.cta-final-alt{margin:18px auto 0;font-family:"Inter",sans-serif;font-size:.88rem}
+.cta-final-ig{margin-top:0}
+.cta-final-alt a{display:inline-block;padding:12px 4px;color:var(--ink);text-underline-offset:3px}

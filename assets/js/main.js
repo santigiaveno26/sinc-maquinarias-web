@@ -105,7 +105,11 @@ document.addEventListener('click', (e) => {
   const a = e.target.closest && e.target.closest('a[href]');
   if (!a) return;
   const h = a.getAttribute('href');
-  const where = a.closest('.hero') ? 'portada' : a.closest('.site-footer') ? 'pie' : 'otro';
+  const where = a.closest('.site-header') ? 'header'
+    : a.closest('.hero') ? 'portada'
+    : a.closest('.prod-hero-copy') ? 'ficha'
+    : a.closest('.cta-final') ? 'cierre'
+    : a.closest('.site-footer') ? 'pie' : 'otro';
   if (h.includes('wa.me')) track('click_whatsapp', { ubicacion: where });
   else if (h.startsWith('mailto:')) track('click_email', { ubicacion: where });
   else if (h.includes('instagram.com')) track('click_instagram', { ubicacion: where });
@@ -123,6 +127,12 @@ fetch('assets/content.json', { cache: 'no-store' })
         }
       });
     }
+    // Preguntas frecuentes: las que estan ocultas aparecen solas cuando se
+    // les carga una respuesta en content.json (faq.*_a).
+    document.querySelectorAll('.faq-item[hidden]').forEach(item => {
+      const answer = item.querySelector('p');
+      if (answer && answer.textContent.trim()) item.hidden = false;
+    });
     initAnalytics(data);
     initChatWidget(data);
   })

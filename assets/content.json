@@ -22,6 +22,7 @@
     "eyebrow": "Sector ecuestre",
     "titulo": "Del establo al suelo, en un solo paso",
     "tagline": "Aspira, tritura y esparce el residuo de los boxes en una sola pasada. Diseño propio, único en el país.",
+    "boton_presupuesto": "Pedir presupuesto",
     "boton_consultar": "Preguntarle al asistente por Equilimpia →",
 
     "antes": "Antes: horquilla, carretilla y volcado manual en tolva o carretón.",
@@ -64,6 +65,7 @@
     "eyebrow": "Espacios verdes y municipios",
     "titulo": "Recicla tu entorno, cultiva tu futuro",
     "tagline": "Aspira, compacta y guarda hojas y restos de poda en una sola máquina. Anda con motor propio, enganchada a un tractor.",
+    "boton_presupuesto": "Pedir presupuesto",
     "boton_consultar": "Preguntarle al asistente por el Biorecolector 4500 →",
 
     "antes": "Antes: rastrillo, bolsas y carretilla hasta el carretón o camión.",
@@ -144,6 +146,42 @@
     "valor4": "Fabricación nacional",
     "quote_texto": "\"Hoy no operaríamos sin Equilimpia. Es una inversión que paga dividendos todas las semanas.\"",
     "quote_autor": "— Haras con 120 boxes, socio estratégico en el desarrollo de Equilimpia"
+  },
+
+  "nav": {
+    "boton_whatsapp": "WhatsApp"
+  },
+
+  "faq": {
+    "_ayuda": "Las preguntas con respuesta vacia (\"\") estan ocultas en la pagina. Para mostrarlas, escribir la respuesta entre las comillas de la clave que termina en _a (por ejemplo cotiza_a). Las preguntas (_q) tambien se pueden editar.",
+    "eyebrow": "Preguntas frecuentes",
+    "titulo": "Antes de escribirnos",
+    "tractor_q": "¿Qué tractor necesito para la Equilimpia?",
+    "tractor_a": "Un tractor de 50 HP o más, con toma de fuerza (TDF) de 540 RPM.",
+    "mantenimiento_q": "¿Qué mantenimiento necesita?",
+    "mantenimiento_a": "Limpieza básica de la tolva todos los días, limpieza profunda y engrase cada semana, y revisiones periódicas de rodamientos y una revisión general completa con nuestro servicio técnico.",
+    "garantia_q": "¿Tienen garantía y repuestos?",
+    "garantia_a": "Sí. Garantía de fábrica de 12 meses contra defectos de fabricación, stock permanente de repuestos de desgaste (púas de los rotores, tramos de manguera, rodamientos, entre otros) y soporte técnico.",
+    "aspirar_q": "¿Hay algo que no se pueda aspirar?",
+    "aspirar_a": "No se deben aspirar piedras grandes ni metales: pueden dañar la turbina.",
+    "cotiza_q": "¿Cómo se cotiza?",
+    "cotiza_a": "",
+    "entrega_q": "¿A qué zonas entregan?",
+    "entrega_a": "",
+    "financiacion_q": "¿Hay opciones de financiación?",
+    "financiacion_a": "",
+    "demo_q": "¿Puedo ver la máquina funcionando?",
+    "demo_a": ""
+  },
+
+  "contacto": {
+    "eyebrow": "Contacto",
+    "titulo": "Contanos de tu establecimiento",
+    "texto": "Escribinos por WhatsApp y te asesoramos según tu trabajo.",
+    "boton_whatsapp": "Hablar por WhatsApp",
+    "boton_mail": "Escribir por mail",
+    "alt_texto": "También podés escribir al",
+    "alt_ig": "O seguinos en"
   },
 
   "footer": {
