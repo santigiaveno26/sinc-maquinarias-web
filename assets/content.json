@@ -66,8 +66,12 @@
     "eyebrow": "Espacios verdes y municipios",
     "titulo": "Recicla tu entorno, cultiva tu futuro",
     "tagline": "Aspira, compacta y guarda hojas y restos de poda en una sola máquina. Anda con motor propio, enganchada a un tractor.",
-    "boton_presupuesto": "Pedir presupuesto",
+    "_nota": "Mientras el Biorecolector 4500 este en prototipo, la pagina solo muestra su foto, el texto de arriba y el aviso de 'Proximamente'. Las claves antes, ahora, paso*, benef*, spec* y aplicaciones estan en pausa (no se ven en la pagina); se vuelven a usar cuando se restaure la seccion.",
+    "boton_presupuesto": "Consultar por WhatsApp",
     "boton_consultar": "Preguntarle al asistente por el Biorecolector 4500 →",
+    "proximamente_badge": "Próximamente",
+    "proximamente_titulo": "Estamos terminando el Biorecolector 4500",
+    "proximamente_texto": "Muy pronto vas a encontrar acá cómo funciona, sus beneficios y la ficha técnica completa.",
 
     "antes": "Antes: rastrillo, bolsas y carretilla hasta el carretón o camión.",
     "ahora": "Hoy: una sola máquina, en estos 3 pasos.",

@@ -538,3 +538,16 @@ details.specs-details[open] summary::after{content:"Ocultar"}
   transition:max-width .4s ease,opacity .3s ease,margin-left .4s ease;
 }
 .chat-toggle.is-compact .chat-toggle-label{max-width:0;opacity:0;margin-left:0}
+
+/* Seccion "Proximamente" (producto en prototipo) */
+.proximamente{
+  margin-top:36px;padding:48px 24px;text-align:center;
+  background:var(--paper-2);border:1px dashed var(--line-strong);border-radius:16px;
+}
+.proximamente-badge{
+  display:inline-block;margin-bottom:14px;padding:5px 14px;border-radius:999px;
+  border:1px solid var(--forest);color:var(--forest);
+  font-family:"Inter",sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+}
+.proximamente h3{font-size:clamp(1.2rem,2.6vw,1.55rem);color:var(--ink);margin:0 auto .5em;max-width:520px}
+.proximamente p{margin:0 auto;max-width:460px;font-family:"Inter",sans-serif;font-size:.95rem;color:var(--text-soft)}
