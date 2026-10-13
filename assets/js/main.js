@@ -22,6 +22,11 @@ const tabPanels = document.querySelectorAll('.tab-panel');
 function activateTab(name, scroll) {
   tabButtons.forEach(b => b.setAttribute('aria-selected', b.dataset.tab === name ? 'true' : 'false'));
   tabPanels.forEach(p => { p.hidden = p.id !== 'tab-' + name; });
+  // Las portadas de los videos de la pestana oculta se bajan recien al abrirla.
+  document.querySelectorAll('#tab-' + name + ' video[data-poster]').forEach(v => {
+    v.poster = v.dataset.poster;
+    v.removeAttribute('data-poster');
+  });
   if (scroll) {
     document.getElementById('productos').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -416,6 +421,14 @@ function initChatWidget(data) {
   document.querySelectorAll('.js-open-chat').forEach(el => {
     el.addEventListener('click', openChat);
   });
+
+  // La etiqueta "Preguntale al asistente" aparece al entrar y se contrae sola
+  // (a los segundos, al scrollear o al abrir el chat) para no tapar contenido.
+  const compactar = () => chatToggle.classList.add('is-compact');
+  setTimeout(compactar, 8000);
+  window.addEventListener('scroll', () => { if (window.scrollY > 300) compactar(); }, { passive: true });
+  chatToggle.addEventListener('click', compactar);
+  document.querySelectorAll('.js-open-chat').forEach(el => el.addEventListener('click', compactar));
 }
 
 /* Videos de los pasos: se ven como un "gif" silencioso, no como un video
