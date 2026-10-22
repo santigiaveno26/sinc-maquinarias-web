@@ -565,16 +565,16 @@ if ('IntersectionObserver' in window && !prefersReducedMotion) {
 /* Video de la portada: arranca cuando entra en pantalla y se detiene al salir.
    No se reproduce solo con "reducir movimiento" ni con ahorro de datos. */
 (function initHeroMedia() {
-  const v = document.querySelector('.hero-media video');
-  if (!v) return;
+  const vids = Array.from(document.querySelectorAll('.hero-media video, .hero-bg'));
+  if (!vids.length) return;
   const saveData = navigator.connection && navigator.connection.saveData;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || saveData) return;
   if (!('IntersectionObserver' in window)) return;
   const io = new IntersectionObserver((entries) => {
     entries.forEach(en => {
-      if (en.isIntersecting) v.play().catch(() => {});
-      else v.pause();
+      if (en.isIntersecting) en.target.play().catch(() => {});
+      else en.target.pause();
     });
-  }, { threshold: 0.4 });
-  io.observe(v);
+  }, { threshold: 0.3 });
+  vids.forEach(v => io.observe(v));
 })();
