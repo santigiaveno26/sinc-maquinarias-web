@@ -602,3 +602,11 @@ details.specs-details[open] summary::after{content:"Ocultar"}
   .hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(21,28,23,.78) 0%,rgba(21,28,23,.5) 45%,rgba(21,28,23,.9) 100%)}
   .hero-plain-inner{position:relative;z-index:1}
 }
+
+/* FAQ: 4 principales y el resto detras de "Ver mas preguntas" */
+.faq-more{display:grid;gap:10px}
+.faq-more[hidden]{display:none}
+.faq-toggle{display:block;margin:18px auto 0;min-height:44px;padding:10px 22px;font-family:"Inter",sans-serif;font-size:.92rem;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line-strong);border-radius:999px;cursor:pointer;transition:border-color .18s ease,color .18s ease}
+.faq-toggle:hover{border-color:var(--gold);color:var(--gold-text)}
+.faq-toggle::after{content:"";display:inline-block;width:7px;height:7px;margin:0 0 3px 10px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s ease}
+.faq-toggle[aria-expanded="true"]::after{transform:rotate(-135deg);margin-bottom:-2px}

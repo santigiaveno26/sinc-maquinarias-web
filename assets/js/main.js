@@ -578,3 +578,20 @@ if ('IntersectionObserver' in window && !prefersReducedMotion) {
   }, { threshold: 0.3 });
   vids.forEach(v => io.observe(v));
 })();
+
+
+/* Preguntas frecuentes: 4 a la vista y el resto con "Ver mas preguntas". */
+(function initFaqMore() {
+  const btn = document.getElementById('faqToggle');
+  const more = document.getElementById('faqMore');
+  if (!btn || !more) return;
+  const label = btn.querySelector('span');
+  btn.addEventListener('click', () => {
+    const open = more.hidden;
+    more.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    if (label) label.textContent = open ? 'Ver menos preguntas' : (label.dataset.more || 'Ver más preguntas');
+    if (open) track('faq_ver_mas');
+  });
+  if (label) label.dataset.more = label.textContent;
+})();
