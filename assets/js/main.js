@@ -560,3 +560,21 @@ if ('IntersectionObserver' in window && !prefersReducedMotion) {
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) show(idx + (dx < 0 ? 1 : -1));
   }, { passive: true });
 })();
+
+
+/* Video de la portada: arranca cuando entra en pantalla y se detiene al salir.
+   No se reproduce solo con "reducir movimiento" ni con ahorro de datos. */
+(function initHeroMedia() {
+  const v = document.querySelector('.hero-media video');
+  if (!v) return;
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || saveData) return;
+  if (!('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) v.play().catch(() => {});
+      else v.pause();
+    });
+  }, { threshold: 0.4 });
+  io.observe(v);
+})();
