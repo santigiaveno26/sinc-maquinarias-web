@@ -335,6 +335,7 @@ function initChatWidget(data) {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </button>
         </form>
+        <p class="chat-legal">Guardamos la conversación para atenderte. <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a></p>
       </div>`;
     const log = chatPanelBody.querySelector('#chatLog');
     const form = chatPanelBody.querySelector('#chatForm');
@@ -468,3 +469,94 @@ if ('IntersectionObserver' in window && !prefersReducedMotion) {
   }, { threshold: 0.15 });
   revealTargets.forEach(el => revealObserver.observe(el));
 }
+
+
+/* Visor de fotos de la galeria: tocar una foto la abre a pantalla completa.
+   Se cierra con la X, tocando el fondo, Esc o el boton "atras" del celular;
+   se navega con las flechas, deslizando el dedo o con el teclado. */
+(function initLightbox() {
+  const buttons = Array.from(document.querySelectorAll('.galeria-btn'));
+  if (!buttons.length) return;
+  const lb = document.createElement('div');
+  lb.className = 'lb';
+  lb.hidden = true;
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
+  lb.setAttribute('aria-label', 'Galería de fotos de la Equilimpia');
+  lb.innerHTML = `
+    <button type="button" class="lb-close" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button type="button" class="lb-nav prev" aria-label="Foto anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <figure class="lb-fig"><img alt=""><figcaption></figcaption></figure>
+    <button type="button" class="lb-nav next" aria-label="Foto siguiente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <div class="lb-count" aria-live="polite"></div>`;
+  document.body.appendChild(lb);
+  const img = lb.querySelector('img');
+  const cap = lb.querySelector('figcaption');
+  const count = lb.querySelector('.lb-count');
+  let idx = 0, lastFocus = null, pushed = false;
+
+  function show(i) {
+    idx = (i + buttons.length) % buttons.length;
+    const b = buttons[idx];
+    img.classList.remove('is-ready');
+    img.onload = () => img.classList.add('is-ready');
+    img.src = b.dataset.full;
+    img.alt = b.querySelector('img').alt;
+    const fc = b.parentElement.querySelector('figcaption');
+    cap.textContent = fc ? fc.textContent : '';
+    count.textContent = (idx + 1) + ' / ' + buttons.length;
+    [idx + 1, idx - 1].forEach(j => { new Image().src = buttons[(j + buttons.length) % buttons.length].dataset.full; });
+  }
+  function open(i) {
+    lastFocus = document.activeElement;
+    show(i);
+    lb.hidden = false;
+    document.documentElement.classList.add('lb-open');
+    lb.querySelector('.lb-close').focus();
+    if (!pushed) { history.pushState({ lb: 1 }, ''); pushed = true; }
+  }
+  function close(fromPop) {
+    if (lb.hidden) return;
+    lb.hidden = true;
+    document.documentElement.classList.remove('lb-open');
+    img.removeAttribute('src');
+    const wasPushed = pushed;
+    pushed = false;
+    if (wasPushed && !fromPop) history.back();
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  buttons.forEach((b, i) => b.addEventListener('click', () => open(i)));
+  lb.querySelector('.lb-close').addEventListener('click', () => close());
+  lb.querySelector('.prev').addEventListener('click', () => show(idx - 1));
+  lb.querySelector('.next').addEventListener('click', () => show(idx + 1));
+  lb.addEventListener('click', (e) => { if (e.target === lb || e.target.classList.contains('lb-fig')) close(); });
+  window.addEventListener('popstate', () => close(true));
+  document.addEventListener('keydown', (e) => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(idx - 1);
+    else if (e.key === 'ArrowRight') show(idx + 1);
+    else if (e.key === 'Tab') {
+      const f = Array.from(lb.querySelectorAll('button'));
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  let x0 = null, y0 = null;
+  lb.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; } else x0 = null;
+  }, { passive: true });
+  lb.addEventListener('touchend', (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    x0 = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) show(idx + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+})();
