@@ -611,12 +611,6 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 .faq-toggle::after{content:"";display:inline-block;width:7px;height:7px;margin:0 0 3px 10px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s ease}
 .faq-toggle[aria-expanded="true"]::after{transform:rotate(-135deg);margin-bottom:-2px}
 
-/* Como se usa: 5 pasos en una linea corta */
-.uso-pasos{margin:4px 0 26px}
-.uso-pasos h3,.incluido h3{font-family:"Inter",sans-serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin:0 0 10px}
-.uso-pasos ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;counter-reset:uso}
-.uso-pasos li{counter-increment:uso;display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 8px;border:1px solid var(--line);background:#fff;border-radius:999px;font-family:"Inter",sans-serif;font-size:.84rem;font-weight:600;color:var(--ink)}
-.uso-pasos li::before{content:counter(uso);display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:.75rem;font-weight:700}
 
 /* Todo incluido y seguro */
 .incluido{margin:26px 0 8px}
@@ -632,8 +626,3 @@ details.specs-details[open] summary::after{content:"Ocultar"}
 .galeria-more[hidden]{display:none}
 .galeria-toggle{margin-top:14px}
 .proximamente-aviso{margin-top:18px}
-@media(max-width:640px){
-  .uso-pasos ol{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px;padding:2px 20px 6px;scrollbar-width:none}
-  .uso-pasos ol::-webkit-scrollbar{display:none}
-  .uso-pasos li{flex:0 0 auto;white-space:nowrap}
-}
