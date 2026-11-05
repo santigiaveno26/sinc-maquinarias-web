@@ -565,7 +565,7 @@ if ('IntersectionObserver' in window && !prefersReducedMotion) {
 /* Video de la portada: arranca cuando entra en pantalla y se detiene al salir.
    No se reproduce solo con "reducir movimiento" ni con ahorro de datos. */
 (function initHeroMedia() {
-  const vids = Array.from(document.querySelectorAll('.hero-media video, .hero-bg'));
+  const vids = Array.from(document.querySelectorAll('.hero-media video, video.hero-bg'));
   if (!vids.length) return;
   const saveData = navigator.connection && navigator.connection.saveData;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || saveData) return;
