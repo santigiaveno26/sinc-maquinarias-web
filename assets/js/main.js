@@ -595,3 +595,20 @@ if ('IntersectionObserver' in window && !prefersReducedMotion) {
   });
   if (label) label.dataset.more = label.textContent;
 })();
+
+
+/* Galeria: 6 fotos a la vista y el resto con "Ver mas fotos". */
+(function initGaleriaMore() {
+  const btn = document.getElementById('galeriaToggle');
+  const more = document.getElementById('galeriaMore');
+  if (!btn || !more) return;
+  const label = btn.querySelector('span');
+  btn.addEventListener('click', () => {
+    const open = more.hidden;
+    if (label && !label.dataset.more) label.dataset.more = label.textContent;
+    more.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    if (label) label.textContent = open ? 'Ver menos fotos' : label.dataset.more;
+    if (open) track('galeria_ver_mas');
+  });
+})();
